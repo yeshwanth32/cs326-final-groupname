@@ -1,4 +1,4 @@
-# cs326-final-teambandits
+# cs326-teambandits
 
 Team Name - Team Bandits 
 
