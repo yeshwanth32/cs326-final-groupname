@@ -20,11 +20,11 @@ When a user visits the site, they will be asked to create a user account. Each g
 In another section, users can make posts about games or that they are looking for people who want to play. These posts can be upvoted or downvoted, and can also be commented on. Here users can create groups to socialize and play that game. 
 
 ## Data types:
-Game listings (such as what is popular in the community)
-Rentals
-Game details (trailer and descriptions)
-Reviews/Ratings for games
-User posts
-Game groups
+1. Game listings (such as what is popular in the community)
+2. Rentals
+3. Game details (trailer and descriptions)
+4. Reviews/Ratings for games
+5. User posts
+6. Game groups
 	
 	
