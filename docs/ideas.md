@@ -8,7 +8,7 @@ Team Overview:
 1. Aryaan Bomma - aryaanb
 2. Yeshwanth Bommareddy - yeshwanth32
 3. Keerthana Mandava - KM090901
-	4. Rohan Adla - rohan-ynwa
+4. Rohan Adla - rohan-ynwa
 
 
 A UMass gaming buddies website. This is a website where you can post what games you want to play and search for people from umass that can join your group. This can be board games, console games etc. We will also have a section where people can give out their CD's/board games for rent or have other people borrow them.
