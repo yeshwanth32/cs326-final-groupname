@@ -20,7 +20,7 @@ Reviews/Ratings for games
 User posts
 Game groups
 	
-	Important components: When a user visits the site, they will be asked to create a user account. Each game will have a section which details the description and shows trailers of the games. Under each game there will be a section where users can list the respective game to rent out along with its price. 
+Important components: When a user visits the site, they will be asked to create a user account. Each game will have a section which details the description and shows trailers of the games. Under each game there will be a section where users can list the respective game to rent out along with its price. 
 
 In another section, users can make posts about games or that they are looking for people who want to play. These posts can be upvoted or downvoted, and can also be commented on. Here users can create groups to socialize and play that game. 
 	
