@@ -38,13 +38,5 @@ body {
 }
 
 .icon-active {
-    width: 30px;
-    height: 30px;
-    color: var(--primary-alt);
-    background-color: var(--white-alt);
-    padding: 20px;
-    box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
-    0 3px 6px 0 rgba(25, 32, 36, 0.16);
-    border-radius: 10rem;
-    border: #7B5DD0 solid 0.5rem;
+    color: var(--white);
 }
