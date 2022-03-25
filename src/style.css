@@ -2,6 +2,7 @@
     --primary: #1b1919;
     --primary-alt: #1D1B1B;
     --secondary: #EEF1F4;
+    --secondary-alt: #667080;
     --accent: #7B5DD0;
   }
 
@@ -20,4 +21,9 @@ body {
     box-shadow: 1rem;
     box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
     0 3px 6px 0 rgba(25, 32, 36, 0.16);
+}
+
+.icon {
+    color: var(--secondary-alt);
+    
 }
