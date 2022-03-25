@@ -1,18 +1,23 @@
 :root {
-    --primary: #201931;
-    --primary-alt: #0a080f;
+    --primary: #1b1919;
+    --primary-alt: #1D1B1B;
     --secondary: #EEF1F4;
     --accent: #7B5DD0;
   }
 
 body {
-    background-color: var(--primary);
     margin: 0;
+    height: 100vh;
+    background: var(--primary-alt);
+    background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
 }
 
 #nav {
-    width: 175px;
+    width: 190px;
     height: 100vh;
     background-color: var(--primary-alt);
     position: fixed;
+    box-shadow: 1rem;
+    box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
 }
