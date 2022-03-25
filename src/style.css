@@ -1,7 +1,9 @@
 :root {
-    --primary: #1b1919;
-    --primary-alt: #1D1B1B;
-    --secondary: #EEF1F4;
+    --primary: #272525;
+    --primary-alt: #141313;
+    --white: #EEF1F4;
+    --white-alt: #ced0d1;
+    --secondary: #aebed6;
     --secondary-alt: #667080;
     --accent: #7B5DD0;
   }
@@ -9,7 +11,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background: var(--primary-alt);
+    background: var(--primary);
     background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
 }
 
@@ -18,7 +20,6 @@ body {
     height: 100vh;
     background-color: var(--primary-alt);
     position: fixed;
-    box-shadow: 1rem;
     box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
     0 3px 6px 0 rgba(25, 32, 36, 0.16);
     display: flex;
@@ -29,5 +30,21 @@ body {
 
 .icon {
     color: var(--secondary-alt);
-    
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: var(--secondary);
+}
+
+.icon-active {
+    width: 30px;
+    height: 30px;
+    color: var(--primary-alt);
+    background-color: var(--white-alt);
+    padding: 20px;
+    box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+    border-radius: 10rem;
+    border: #7B5DD0 solid 0.5rem;
 }
