@@ -61,10 +61,10 @@ body {
   
 @keyframes slidein {
     0% {
-      transform: translateY(45vh);
-    }
-  
-    100% {
-      transform: translateY(0px);
-    }
+        opacity: 0;
+      }
+    
+      100% {
+        opacity: 100;
+      }
 }
