@@ -1,5 +1,5 @@
 :root {
-    --primary: #272525;
+    --primary: #141313;
     --primary-alt: #141313;
     --white: #EEF1F4;
     --white-alt: #adadad;
@@ -51,7 +51,7 @@ body {
 
 #card {
     background-color: var(--primary-alt);
-    width: 60vw;
+    width: 70vw;
     height: 90vh;
     margin-top: 10vh;
     border-radius: 3rem 3rem 0 0;
@@ -62,9 +62,9 @@ body {
 @keyframes slidein {
     0% {
         opacity: 0;
-      }
-    
-      100% {
+    }
+
+    100% {
         opacity: 100;
-      }
+    }
 }
