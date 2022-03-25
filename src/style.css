@@ -1,9 +1,18 @@
 :root {
-    --primary: #1A1528;
+    --primary: #201931;
+    --primary-alt: #0a080f;
     --secondary: #EEF1F4;
     --accent: #7B5DD0;
   }
 
- body {
+body {
     background-color: var(--primary);
+    margin: 0;
+}
+
+#nav {
+    width: 175px;
+    height: 100vh;
+    background-color: var(--primary-alt);
+    position: fixed;
 }
