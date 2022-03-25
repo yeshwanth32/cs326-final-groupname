@@ -41,7 +41,7 @@ body {
     color: var(--white);
 }
 
-#content-wrapper {
+#card-wrapper {
     width: calc(100vw - 190px);
     margin-left: 190px;
     height: 100vh;
@@ -58,6 +58,16 @@ body {
     animation: slidein 0.45s forwards ease-out;
 }
 
+#content {
+    width: 70vw;
+    height: 70vh;
+}
+
+#banner {
+    border-radius: 3rem 3rem 0 0;
+    width: 70vw;
+    height: 20vh;
+}
   
 @keyframes slidein {
     0% {
