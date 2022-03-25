@@ -2,9 +2,9 @@
     --primary: #272525;
     --primary-alt: #141313;
     --white: #EEF1F4;
-    --white-alt: #ced0d1;
-    --secondary: #aebed6;
-    --secondary-alt: #667080;
+    --white-alt: #adadad;
+    --secondary: #797a7e;
+    --secondary-alt: #646568;
     --accent: #7B5DD0;
   }
 
@@ -34,9 +34,37 @@ body {
 }
 
 .icon:hover {
-    color: var(--secondary);
+    color: var(--white-alt);
 }
 
 .icon-active {
     color: var(--white);
+}
+
+#content-wrapper {
+    width: calc(100vw - 190px);
+    margin-left: 190px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#card {
+    background-color: var(--primary-alt);
+    width: 60vw;
+    height: 90vh;
+    margin-top: 10vh;
+    border-radius: 3rem 3rem 0 0;
+    animation: slidein 0.6s forwards ease-out;
+}
+
+  
+@keyframes slidein {
+    0% {
+      transform: translateY(50vh);
+    }
+  
+    100% {
+      transform: translateY(0px);
+    }
 }
