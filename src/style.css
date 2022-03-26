@@ -1,61 +1,171 @@
 :root {
-	--primary: #141313;
-	--primary-alt: #141313;
-	--white: #eef1f4;
-	--white-alt: #adadad;
-	--secondary: #797a7e;
-	--secondary-alt: #646568;
-	--accent: #7b5dd0;
-}
+    --primary: #141313;
+    --primary-alt: #0a0a0a;
+    --white: #EEF1F4;
+    --white-alt: #adadad;
+    --secondary: #797a7e;
+    --secondary-alt: #646568;
+    --accent: #7B5DD0;
+  }
 
 body {
-	margin: 0;
-	height: 100vh;
-	background: var(--primary);
-	background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
+    margin: 0;
+    height: 100vh;
+    background: var(--primary);
+    background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
 }
 
 #nav {
-	width: 190px;
-	height: 100vh;
-	background-color: var(--primary-alt);
-	position: fixed;
-	box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
-		0 3px 6px 0 rgba(25, 32, 36, 0.16);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
+    width: 190px;
+    height: 100vh;
+    background-color: var(--primary-alt);
+    position: fixed;
+    box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .icon {
-	color: var(--secondary-alt);
-	cursor: pointer;
+    color: var(--secondary-alt);
+    cursor: pointer;
 }
 
 .icon:hover {
-	color: var(--white-alt);
+    color: var(--white-alt);
 }
 
 .icon-active {
-	color: var(--white);
+    color: var(--white);
 }
 
 #card-wrapper {
-	width: calc(100vw - 190px);
-	margin-left: 190px;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
+    width: calc(100vw - 190px);
+    margin-left: 190px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-#card {
-	background-color: var(--primary-alt);
-	width: 70vw;
-	height: 90vh;
-	margin-top: 10vh;
-	border-radius: 3rem 3rem 0 0;
-	animation: slidein 0.45s forwards ease-out;
+.card {
+    background-color: var(--primary);
+    width: 70vw;
+    height: 90vh;
+    margin-top: 10vh;
+    border-radius: 3rem 3rem 0 0;
+    animation: slidein 0.45s forwards ease-out;
+    position: absolute;
+}
+
+.content {
+    width: 70vw;
+    height: 70vh;
+    background-color: var(--primary-alt);
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.banner {
+    border-radius: 3rem 3rem 0 0;
+    width: 70vw;
+    height: 20vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+}
+  
+.banner-game {
+    filter: blur(1rem);
+    width: 70vw;
+    object-fit: cover;
+}
+
+@keyframes slidein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
+
+.game {
+    width: 200px;
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.game:hover {
+    animation: fadein 0.45s forwards ease-out;
+}
+
+@keyframes fadein {
+    0% {
+        filter: brightness(70%);
+    }
+
+    100% {
+        filter: brightness(100%);
+    }
+}
+
+.game-wrapper {
+    width: 200px;
+    border-radius: 2rem;
+    overflow: hidden;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.game-data {
+    width: 70vw;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 50px;
+    height: 30vh;
+}
+
+.game-cont > h2 {
+    color: var(--white-alt);
+    width: 20vw;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+.game-cont > h1 {
+    color: var(--white);
+    width: 20vw;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.2rem;
+}
+
+.game-data > i {
+    width: 200px;
+    color: var(--white);
+}
+
+.exit {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--secondary);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.exit:hover {
+    color: rgb(172, 23, 23);
 }
 
 #form-card {
@@ -67,23 +177,10 @@ body {
 	animation: slidein 0.45s forwards ease-out;
 }
 
-#content {
-	width: 70vw;
-	height: 70vh;
-
-}
-
 #form-content {
     width: 70vw;
 	height: 70vh;
     padding: 50px;
-
-}
-
-#banner {
-	border-radius: 3rem 3rem 0 0;
-	width: 70vw;
-	height: 20vh;
 }
 
 #form-banner {
@@ -100,14 +197,4 @@ body {
 #add-game-submit {
     background-color: #7B5DD0;
     color: white;
-}
-
-@keyframes slidein {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 100;
-	}
 }
