@@ -192,6 +192,37 @@ h1 {
     color: rgb(172, 23, 23);
 }
 
+#form-card {
+	background-color: var(--white);
+	width: 70vw;
+	height: 90vh;
+	margin-top: 10vh;
+	border-radius: 3rem 3rem 0 0;
+	animation: slidein 0.45s forwards ease-out;
+}
+
+#form-content {
+    width: 70vw;
+	height: 70vh;
+    padding: 50px;
+}
+
+#form-banner {
+    border-radius: 3rem 3rem 0 0;
+	width: 70vw;
+	height: 20vh;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#add-game-submit {
+    background-color: #7B5DD0;
+    color: white;
+}
+
 .listing {
     width: 65vw;
     background-color: #000000;
