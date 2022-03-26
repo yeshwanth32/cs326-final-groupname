@@ -3,6 +3,7 @@
     --primary-alt: #0a0a0a;
     --white: #EEF1F4;
     --white-alt: #adadad;
+    --white-alt2:rgb(221, 221, 221);
     --secondary: #797a7e;
     --secondary-alt: #646568;
     --accent: #9A9AE6;
@@ -104,6 +105,16 @@ body {
     object-fit: cover;
 }
 
+h1 {
+    color: var(--white-alt2);
+    font-size: 3rem;
+    align-self: center;
+}
+
+#u {
+    color: var(--accent);
+}
+
 @keyframes slidein {
     0% {
         opacity: 0;
@@ -139,7 +150,7 @@ body {
     border-radius: 2rem;
     overflow: hidden;
     height: 250px;
-    margin-top: 50px;
+    margin: 50px;
 }
 
 .game-data {
