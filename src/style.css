@@ -5,7 +5,7 @@
     --white-alt: #adadad;
     --secondary: #797a7e;
     --secondary-alt: #646568;
-    --accent: #7B5DD0;
+    --accent: #9A9AE6;
   }
 
 body {
@@ -13,6 +13,7 @@ body {
     height: 100vh;
     background: var(--primary);
     background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
+    font-family: 'Signika', sans-serif;
 }
 
 #nav {
@@ -63,7 +64,7 @@ body {
     width: 70vw;
     height: 70vh;
     background-color: var(--primary-alt);
-    overflow: scroll;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -139,7 +140,6 @@ body {
 .game-cont > h2 {
     color: var(--white-alt);
     width: 20vw;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5rem;
     font-weight: lighter;
 }
@@ -147,7 +147,6 @@ body {
 .game-cont > h1 {
     color: var(--white);
     width: 20vw;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2.2rem;
 }
 
@@ -160,7 +159,6 @@ body {
     font-size: 3rem;
     font-weight: 900;
     color: var(--secondary);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
 }
 
@@ -197,4 +195,32 @@ body {
 #add-game-submit {
     background-color: #7B5DD0;
     color: white;
+}
+
+.listing {
+    width: 65vw;
+    background-color: #000000;
+    margin: 0.2vw;
+    padding: 2vw;
+    display: flex;
+    color: var(--white);
+    font-size: 1.7rem;
+    justify-content: space-around;
+}
+
+.list-wrapper {
+    overflow: scroll;
+    height: 40vh;
+}
+
+button {
+    background-color: var(--accent);
+    color: var(--primary);
+    min-height: 5vh;
+    box-sizing: border-box;
+    border: 0.1rem solid var(--accent);
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 2vh;
 }
