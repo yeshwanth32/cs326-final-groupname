@@ -6,6 +6,7 @@
     --secondary: #797a7e;
     --secondary-alt: #646568;
     --accent: #9A9AE6;
+    --accent-alt: #7a7ae6;
   }
 
 body {
@@ -14,6 +15,20 @@ body {
     background: var(--primary);
     background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
     font-family: 'Signika', sans-serif;
+}
+
+* {
+    scrollbar-width: 8px;
+    scrollbar-color: var(--accent-alt);
+  }
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: var(--accent-alt);    
+    border-radius: 1px;      
 }
 
 #nav {
@@ -193,3 +208,4 @@ button {
     cursor: pointer;
     padding: 2vh;
 }
+
