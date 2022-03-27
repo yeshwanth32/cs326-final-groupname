@@ -53,7 +53,14 @@ This is the user's communities page. It includes all the gaming communitites the
 
 This is the user's profile page. Here they can view the games that they have rented. 
 
+### Wireframe:
+
 ![image](https://user-images.githubusercontent.com/56751146/160264201-1c02d003-0fd3-481e-8d55-7ef5b2248254.png)
+
+### Screenshot:
+
+![image](https://user-images.githubusercontent.com/56751146/160264884-335c9bfa-714e-478f-bd1c-541ebb735a6c.png)
+
 
 
 
