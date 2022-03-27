@@ -61,6 +61,5 @@ This is the user's profile page. Here they can view the games that they have ren
 
 ![image](https://user-images.githubusercontent.com/56751146/160264884-335c9bfa-714e-478f-bd1c-541ebb735a6c.png)
 
-
-
+# breakdown of the division of labor:
 
