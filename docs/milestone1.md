@@ -21,7 +21,7 @@ The game description page will appear upon clicking on a certain game in the pag
 
 ### Screenshot:
 
-![image](https://user-images.githubusercontent.com/55421541/160264744-7918dc90-adf4-4171-9aa6-f2ec07425ba5.png)
+![image](https://user-images.githubusercontent.com/55421541/160265738-a46feb8e-69a8-4be9-a028-19d091704dc2.png)
 
 
 ## Add Games Page
