@@ -25,7 +25,7 @@ function gameInfo() {
     let parent = document.getElementById("card-wrapper");
 
     let card = document.createElement("div");
-    card.classList.add("card");
+    card.classList.add("info-card");
     card.id = 'gameCard';
 
     let banner = document.createElement("div");

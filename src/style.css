@@ -68,7 +68,7 @@ body {
     justify-content: center;
 }
 
-.card {
+.info-card {
     background-color: var(--primary);
     width: 70vw;
     height: 90vh;
@@ -76,6 +76,27 @@ body {
     border-radius: 3rem 3rem 0 0;
     animation: slidein 0.45s forwards ease-out;
     position: absolute;
+}
+
+#group-card {
+    background-color: var(--primary-alt);
+    width: 70vw;
+    height: 90vh;
+    margin-top: 10vh;
+    border-radius: 3rem 3rem 0 0;
+    animation: slidein 0.45s forwards ease-out;
+}
+
+#name {
+    background-color: #b7a0f7;
+    width: 60vw;
+    height: 10vh;
+    margin-bottom: 10vh;
+    padding: 50px;
+    /* border-left: 50px; */
+    border-radius: 3rem 3rem 3rem 3rem;
+    animation: slidein 0.45s forwards ease-out;
+    
 }
 
 .content {
@@ -91,6 +112,81 @@ body {
     align-content: flex-start;
 }
 
+#group-content {
+    width: 70vw;
+    height: 70vh;
+    padding: 50px;
+
+    overflow-y: scroll;
+}
+
+#contentgroupitem {
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+#groupitem {
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+}
+
+#icons {
+    padding: 25px;
+}
+
+#icon{
+    padding:5px;
+}
+
+#circle-icon {
+    background: #bdbcbc;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+#circle {
+    width: 75px;
+    height: 75px;
+    background: rgb(185, 183, 183);
+    border-radius: 50%
+  }
+
+#ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.card-color{
+    background-color: #b7a0f7;
+}
+
+.card-outline{
+    border-radius: 1.5rem;
+}
+
+
+#contentgroups {
+    width: 70vw;
+    height: 70vh;
+    color: white;
+    padding-left: 50px;
+    padding-top: 50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 .banner {
     border-radius: 3rem 3rem 0 0;
     width: 70vw;
@@ -100,6 +196,15 @@ body {
     justify-content: center;
     overflow: hidden;
 }
+
+html {
+    overflow:   scroll;
+  }
+  ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+      background: transparent; /* make scrollbar transparent */
+  }
   
 .banner-game {
     filter: blur(1rem);
