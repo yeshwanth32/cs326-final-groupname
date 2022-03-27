@@ -356,3 +356,7 @@ button {
     padding: 2vh;
 }
 
+.form-width {
+    width: 75%;
+    margin: 0 auto;
+}
