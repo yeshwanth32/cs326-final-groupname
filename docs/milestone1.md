@@ -28,7 +28,13 @@ The game description page will appear upon clicking on a certain game in the pag
 
 The add games page allows users to post games that they wish to rent out to other users. Here the user will select the game they want to rent out, the game's rental price, the game's condition, and an image of the game. This game's rental information will then be listed under the respective game listing in the page above. 
 
+### Wireframe:
+
 ![image](https://user-images.githubusercontent.com/56751146/160263717-3a3f581d-6341-4647-ba58-395405446e16.png)
+
+### Screenshot:
+
+![image](https://user-images.githubusercontent.com/55421541/160264722-a5ecde20-840d-4edb-a13c-f9970d201af5.png)
 
 ## Communities Page
 
