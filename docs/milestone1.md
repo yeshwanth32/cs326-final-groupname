@@ -21,7 +21,7 @@ The game description page will appear upon clicking on a certain game in the pag
 
 ### Screenshot:
 
-![image](https://user-images.githubusercontent.com/55421541/160264635-322287c1-2081-4d27-8b00-fd407475c84f.png)
+![image](https://user-images.githubusercontent.com/55421541/160264744-7918dc90-adf4-4171-9aa6-f2ec07425ba5.png)
 
 
 ## Add Games Page
@@ -34,13 +34,18 @@ The add games page allows users to post games that they wish to rent out to othe
 
 ### Screenshot:
 
-![image](https://user-images.githubusercontent.com/55421541/160264722-a5ecde20-840d-4edb-a13c-f9970d201af5.png)
+![image](https://user-images.githubusercontent.com/55421541/160264790-4f3e0d5d-4a5d-4fc2-9aa1-e32bc2260616.png)
 
 ## Communities Page
 
 This is the user's communities page. It includes all the gaming communitites the user is a part of. Each community is a game that the user joined from the game description page. Each community allows the user to communicate with other members of that community. Users can also delete a community that they wish to not be a part of. 
 
+### Wireframe:
+
 ![image](https://user-images.githubusercontent.com/56751146/160264033-21832c8f-40b7-4ec5-b252-308cb8478da8.png)
+
+### Screenshot:
+
 
 ## User Profile Page
 
