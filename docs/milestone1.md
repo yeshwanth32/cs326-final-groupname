@@ -7,14 +7,22 @@ This is the application's discover page, where a user can browse all available g
 
 ![image](https://user-images.githubusercontent.com/56751146/160263278-5ab28f07-b78b-4b4f-8c47-e1ed63dbbd09.png)
 
-### Screenshot
+### Screenshot:
+
 ![image](https://user-images.githubusercontent.com/55421541/160264574-19c68a14-c765-4cd3-ba7c-bdb8cefef241.png)
 
 ## Game Description Page:
 
 The game description page will appear upon clicking on a certain game in the page above. This page contains details regarding the price to rent out a game, the condition the game is in, and the seller's information. Here the user will also have the option to join the game's community where they can link with other gamers.  
 
+### Wireframe:
+
 ![image](https://user-images.githubusercontent.com/56751146/160263512-c880fe6a-e645-40dd-aeb5-2ea4baf49110.png)
+
+### Screenshot:
+
+![image](https://user-images.githubusercontent.com/55421541/160264635-322287c1-2081-4d27-8b00-fd407475c84f.png)
+
 
 ## Add Games Page
 
