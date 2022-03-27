@@ -1,9 +1,14 @@
-# Wireframes:
+# User Interface:
 
 ## Discover Page:
 This is the application's discover page, where a user can browse all available games in our game library. If a user clicks on a game, the wireframe below will pop up on the user's screen.
 
+### Wireframe:
+
 ![image](https://user-images.githubusercontent.com/56751146/160263278-5ab28f07-b78b-4b4f-8c47-e1ed63dbbd09.png)
+
+### Screenshot
+![image](https://user-images.githubusercontent.com/55421541/160264574-19c68a14-c765-4cd3-ba7c-bdb8cefef241.png)
 
 ## Game Description Page:
 
