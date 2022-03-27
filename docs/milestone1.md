@@ -1,6 +1,6 @@
 # User Interface:
 
-## Discover Page:
+## Discover Page
 This is the application's discover page, where a user can browse all available games in our game library. If a user clicks on a game, the wireframe below will pop up on the user's screen.
 
 ### Wireframe:
@@ -11,7 +11,7 @@ This is the application's discover page, where a user can browse all available g
 
 ![image](https://user-images.githubusercontent.com/55421541/160264574-19c68a14-c765-4cd3-ba7c-bdb8cefef241.png)
 
-## Game Description Page:
+## Game Description Page
 
 The game description page will appear upon clicking on a certain game in the page above. This page contains details regarding the price to rent out a game, the condition the game is in, and the seller's information. Here the user will also have the option to join the game's community where they can link with other gamers.  
 
