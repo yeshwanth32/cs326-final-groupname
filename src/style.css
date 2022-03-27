@@ -25,6 +25,7 @@ body {
 
 *::-webkit-scrollbar {
     width: 8px;
+    color: #7a7ae6;
 }
   
 *::-webkit-scrollbar-thumb {
@@ -58,8 +59,6 @@ body {
     color: var(--white);
 }
 
-
-
 #card-wrapper {
     width: calc(100vw - 190px);
     margin-left: 190px;
@@ -88,7 +87,7 @@ body {
 }
 
 #name {
-    background-color: #b7a0f7;
+    background-color: var(--accent);
     width: 60vw;
     height: 10vh;
     margin-bottom: 10vh;
@@ -117,7 +116,6 @@ body {
     width: 70vw;
     height: 70vh;
     padding: 50px;
-
     overflow-y: scroll;
 }
 
@@ -142,7 +140,7 @@ body {
 }
 
 .card-color{
-    background-color: #b7a0f7;
+    background-color: var(--accent);
 }
 
 .card-outline{
@@ -169,15 +167,6 @@ body {
     overflow: hidden;
 }
 
-html {
-    overflow:   scroll;
-  }
-  ::-webkit-scrollbar {
-      width: 0px;
-      height: 0px;
-      background: transparent; /* make scrollbar transparent */
-  }
-  
 .banner-game {
     filter: blur(1rem);
     width: 70vw;
@@ -304,7 +293,7 @@ h2{
 }
 
 #add-game-submit {
-    background-color: #7B5DD0;
+    background-color: var(--accent);
     color: white;
 }
 
@@ -320,7 +309,6 @@ h2{
 }
 
 .list-wrapper {
-    overflow: scroll;
     height: 40vh;
 }
 
@@ -339,4 +327,12 @@ button {
 .form-width {
     width: 75%;
     margin: 0 auto;
+}
+
+.profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 10rem;
+    align-self: center;
+    margin-right: 30px;
 }
