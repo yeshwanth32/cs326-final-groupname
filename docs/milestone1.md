@@ -46,6 +46,8 @@ This is the user's communities page. It includes all the gaming communitites the
 
 ### Screenshot:
 
+![image](https://user-images.githubusercontent.com/56751146/160264832-b00d3864-2908-465a-865a-4571b7c56ca2.png)
+
 
 ## User Profile Page
 
