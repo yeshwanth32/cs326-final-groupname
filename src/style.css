@@ -133,35 +133,6 @@ body {
     padding-right: 50px;
 }
 
-#icons {
-    padding: 25px;
-}
-
-#icon{
-    padding:5px;
-}
-
-#circle-icon {
-    background: #bdbcbc;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 100px;
-    vertical-align: middle;
-    padding-left: 30px;
-    padding-bottom: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
-}
-
-#circle {
-    width: 75px;
-    height: 75px;
-    background: rgb(185, 183, 183);
-    border-radius: 50%
-  }
-
 #ul {
     list-style: none;
     padding-left: 5px;
