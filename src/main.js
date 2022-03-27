@@ -48,7 +48,7 @@ function gameInfo() {
     gameCont.classList.add("game-cont");
 
     let gameHead = document.createElement("h1");
-    gameHead.innerHTML = "Discription"
+    gameHead.innerHTML = "Description"
 
     let gameDis = document.createElement("h2");
     gameDis.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum leo vel orci porta non. Venenatis urna cursus eget nunc scelerisque viverra mauris in."
