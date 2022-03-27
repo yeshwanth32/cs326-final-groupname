@@ -53,6 +53,10 @@ function gameInfo() {
     let gameDis = document.createElement("h2");
     gameDis.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum leo vel orci porta non. Venenatis urna cursus eget nunc scelerisque viverra mauris in."
 
+    let gameGroup = document.createElement("a");
+    gameGroup.innerHTML = "Join Community";
+    gameGroup.classList.add("link");
+
     let exit = document.createElement("div");
     exit.innerHTML = "X";
     exit.classList.add("exit");
@@ -69,6 +73,7 @@ function gameInfo() {
     //Discription
     gameCont.appendChild(gameHead);
     gameCont.appendChild(gameDis);
+    gameCont.appendChild(gameGroup);
     //content
     gameData.appendChild(gameArt);
     gameData.appendChild(gameCont);

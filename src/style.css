@@ -256,8 +256,8 @@ h2{
 }
 
 .exit {
-    font-size: 3rem;
-    font-weight: 900;
+    font-size: 2rem;
+    font-weight: 500;
     color: var(--secondary);
     cursor: pointer;
 }
@@ -335,4 +335,9 @@ button {
     border-radius: 10rem;
     align-self: center;
     margin-right: 30px;
+}
+
+.link {
+    color: var(--accent-alt);
+    cursor: pointer;
 }
