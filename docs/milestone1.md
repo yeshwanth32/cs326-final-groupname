@@ -63,3 +63,16 @@ This is the user's profile page. Here they can view the games that they have ren
 
 ## Breakdown of the Division of Labor:
 
+### Yeshwanth Bommareddy:
+Created user profile page and assisted where needed. 
+
+### Keerthana Mandava:
+Created communities page, contributed to milestone1.md, and assisted where needed.
+
+### Aryaan Bomma:
+Created Add Games page, contributed to milestone1.md, and assisted where needed.
+
+### Rohan Adla:
+Created wireframes, website framework, discover page, and assisted where needed.
+
+
