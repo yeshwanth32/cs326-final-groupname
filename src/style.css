@@ -295,6 +295,7 @@ h2{
 #add-game-submit {
     background-color: var(--accent);
     color: white;
+    border-radius: 1rem;
 }
 
 .listing {
@@ -325,7 +326,7 @@ button {
 }
 
 .form-width {
-    width: 75%;
+    width: 60%;
     margin: 0 auto;
 }
 
