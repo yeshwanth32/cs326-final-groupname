@@ -8,7 +8,7 @@
     --secondary-alt: #646568;
     --accent: #9A9AE6;
     --accent-alt: #7a7ae6;
-  }
+}
 
 body {
     margin: 0;
@@ -240,7 +240,7 @@ h2{
 .game-cont > h2 {
     color: var(--white-alt);
     width: 20vw;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: lighter;
 }
 
