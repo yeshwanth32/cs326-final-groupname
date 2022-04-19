@@ -1,19 +1,43 @@
+import * as crud from './crud.js';
+
 window.onload = function() {
     init();
     icons.forEach(element => {
         element.addEventListener('click', activateIcon);
     });
-    games.forEach(element => {
+    games.forEach((element, index) => {
+        element.id = `g${index + 1}`;
         element.addEventListener('click', gameInfo);
     });
+    if (document.URL.includes("add.html")) {
+        addGameOptions(gameNames);
+        let submit = document.getElementById('add-game-submit');
+        submit.addEventListener('click', async e => {
+            let gameSelect = document.getElementById('gameSelect');
+            let price = document.getElementById('add-game-price').value;
+            let condition = document.getElementById('add-game-condition').value;
+            let selectedGame = gameSelect.options[gameSelect.selectedIndex].text;
+            const listing = await crud.createListing(selectedGame, price, condition);
+        });
+    }
 }
 
 let icons = [];
 let games = [];
+let gameNames = {};
 
 function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
+    // Need to add some way of storing the names of the games that are on the discover page, this is just temporary.
+    gameNames = {
+        'g1': "God of War",
+        'g2': "Fifa 21",
+        'g3': "Pokemon - Legends of Arceus",
+        'g4': "Elden Ring",
+        'g5': "Spider-Man: Miles Morales",
+        'g6': "Super Mario Party",
+    }
 }
 
 function activateIcon() {
@@ -21,9 +45,8 @@ function activateIcon() {
     window.location.href = location;
 }
 
-function gameInfo() {
+async function gameInfo() {
     let parent = document.getElementById("card-wrapper");
-
     let card = document.createElement("div");
     card.classList.add("info-card");
     card.id = 'gameCard';
@@ -48,7 +71,8 @@ function gameInfo() {
     gameCont.classList.add("game-cont");
 
     let gameHead = document.createElement("h1");
-    gameHead.innerHTML = "Description"
+    
+    gameHead.innerHTML = gameNames[this.id]
 
     let gameDis = document.createElement("h2");
     gameDis.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum leo vel orci porta non. Venenatis urna cursus eget nunc scelerisque viverra mauris in."
@@ -65,7 +89,7 @@ function gameInfo() {
     
     let list = document.createElement("div");
     list.classList.add('list-wrapper');
-    addRentals(list);
+    addRentals(list, gameNames[this.id]);
 
     //banner
     banner.appendChild(background);
@@ -85,15 +109,18 @@ function gameInfo() {
     parent.appendChild(card);
 }   
 
-function addRentals (parent) {
-    let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];
+async function addRentals (parent, game) {
+    // let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];
+
+    const rentals = await crud.readListings(game);
 
     rentals.forEach(i => {
         let listing = document.createElement("div");
         listing.classList.add("listing");
 
         let price = document.createElement("div");
-        price.innerHTML = "Price: " + i["price"];
+        // price.innerHTML = "Price: " + i["price"];
+        price.innerHTML = `Price: $${i["price"]}`;
 
         let condition = document.createElement("div");
         condition.innerHTML = "Condition: " + i["condition"];
@@ -110,4 +137,11 @@ function addRentals (parent) {
         listing.appendChild(rent);
         parent.appendChild(listing);
     });
+}
+
+function addGameOptions(gameNames) {
+    let gameSelect = document.getElementById('gameSelect');
+    for (let id in gameNames) {
+        gameSelect.options.add(new Option(gameNames[id], id))
+    }
 }

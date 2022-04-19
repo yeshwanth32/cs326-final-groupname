@@ -10,7 +10,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/b4fd324cba.js" crossorigin="anonymous"></script>
-    <script src="../main.js"></script>
+    <script type="module" src="../main.js"></script>
 </head>
 
 <body>
@@ -28,19 +28,16 @@
             <div id="form-content">
                 <form>
                     <div class="form-group form-width">
-                        <select class="form-select mb-3 form-select-lg">
+                        <select class="form-select mb-3 form-select-lg" id="gameSelect">
                             <option selected>Choose Game</option>
-                            <option value="1">Game 1</option>
-                            <option value="2">Game 2</option>
-                            <option value="3">Game 3</option>
                         </select>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input class="form-control form-control-lg" id="add-game-price">
                         </div>
                         <div class="mb-3">
                             <label for="condition" class="form-label">Condition</label>
-                            <input class="form-control form-control-lg" id="exampleInputPassword1">
+                            <input class="form-control form-control-lg" id="add-game-condition">
                         </div>
                         <label class="btn">
                             <i class="fa fa-upload" aria-hidden="true"></i> <input type="file" hidden>
