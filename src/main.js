@@ -29,6 +29,8 @@ window.onload = async function () {
 let icons = [];
 let games = [];
 let gameNames = {};
+let loggedIn = false;
+
 async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
@@ -46,7 +48,18 @@ async function init() {
 }
 
 function activateIcon() {
-    let location = this.id + ".html";
+    let location;
+    if (this.id === user) {
+        if (loggedIn) {
+            location = "login.html";
+        }
+        else {
+            location = "loggedin.html";
+        }
+    }
+    else {
+        location = this.id + ".html";
+    }
     window.location.href = location;
 }
 
