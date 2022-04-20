@@ -177,12 +177,14 @@ h1 {
     color: var(--white-alt2);
     font-size: 3rem;
     align-self: center;
+    margin: 0 0 2vh 0;
 }
 
 h2{
     color: var(--white-alt2);
     font-size: 2rem;
     align-self: center;
+    margin: 0 0 2vh 0;
 }
 
 #u {
@@ -241,7 +243,6 @@ h2{
     padding: 50px;
     height: 30vh;
     scrollbar-width: 0px;
-    overflow-y: scroll;
 }
 
 .game-cont > h2 {
@@ -348,4 +349,21 @@ button {
 .link {
     color: var(--accent-alt);
     cursor: pointer;
+}
+
+#join-community {
+    background-color: var(--primary-alt);
+    border: none;
+    color: var(--accent);
+    box-sizing: border-box;
+    border: 0.1rem solid var(--accent);
+    border-radius: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 1vh;
+}
+
+
+#join-community:hover {
+    border: 0.1rem solid var(--accent);
 }
