@@ -22,6 +22,34 @@ export async function readListings(game) {
 	}
 }
 
+export async function readRentals(){
+	try {
+		const response = await fetch("/rentalList", {
+			method: 'GET',
+		});
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+export async function getGameDetails(game){
+	try {
+		//url = new URL("/game");
+		//document.URL
+		//`/games/${game}`
+		//url.searchParams.set('name', game);
+		const response = await fetch("/game/name="+game, {
+			method: 'GET',
+		});
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 export async function readCommunities() {
 	try {
 		const response = await fetch(`/communities`, {

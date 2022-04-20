@@ -1,8 +1,7 @@
 import * as crud from './crud.js';
 
-window.onload = function () {
-    init();
-    
+window.onload = async function () {
+    await init();
     icons.forEach(element => {
         element.addEventListener('click', activateIcon);
     });
@@ -30,9 +29,11 @@ window.onload = function () {
 let icons = [];
 let games = [];
 let gameNames = {};
-function init() {
+async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
+    let rentals = await crud.readRentals();
+    console.log(rentals);
     // Need to add some way of storing the names of the games that are on the discover page, this is just temporary.
     gameNames = {
         'g1': "God of War",
@@ -50,7 +51,8 @@ function activateIcon() {
 }
 
 async function gameInfo() {
-
+    let gameDetails = await crud.getGameDetails(this.id);
+    console.log(gameDetails);
     let parent = document.getElementById("card-wrapper");
     let card = document.createElement("div");
     card.classList.add("info-card");
