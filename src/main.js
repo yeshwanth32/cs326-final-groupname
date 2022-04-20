@@ -49,12 +49,12 @@ async function init() {
 
 function activateIcon() {
     let location;
-    if (this.id === user) {
+    if (this.id === "user") {
         if (loggedIn) {
-            location = "login.html";
+            location = "loggedin.html";
         }
         else {
-            location = "loggedin.html";
+            location = "login.html";
         }
     }
     else {
