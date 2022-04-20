@@ -160,7 +160,7 @@ async function addCommunities(parent) {
 
     let communities = await crud.readCommunities();
 
-    communities.forEach(community => {
+    communities.forEach((community, i) => {
         let list = `
             <div class="card w-100 mb-5 card-color card-outline">
                 <h4 class="card-body d-flex justify-content-between align-items-center">
@@ -174,7 +174,7 @@ async function addCommunities(parent) {
                         <button type="button" class="btn btn-lg"><i class="fa fa-headphones" aria-hidden="true"></i> <input
                             type="file" hidden>
                         </button>
-                        <button type="button" class="btn btn-lg"><i class="fa fa-trash" aria-hidden="true"></i> <input
+                        <button type="button" class="btn btn-lg" id="delete-community-${i}"><i class="fa fa-trash" aria-hidden="true"></i> <input
                             type="file" hidden>
                         </button>
                     </div>
@@ -184,6 +184,13 @@ async function addCommunities(parent) {
         let li = document.createElement('li');
         li.innerHTML = list;
         parent.appendChild(li);
+        const deleteCommunity = document.getElementById(`delete-community-${i}`);
+        deleteCommunity.addEventListener('click', async (e) => {
+            parent.removeChild(li);
+            await crud.deleteCommunity(community);
+        });
     })
 }
+
+
 

@@ -45,3 +45,15 @@ export async function createCommunity(game) {
 	const data = await response.json();
 	return data;
 }
+
+export async function deleteCommunity(game) {
+	const response = await fetch(`/communities/delete`, {
+	  method: 'DELETE',
+	  body: JSON.stringify({ game: game }),
+	  headers: {
+		'Content-Type': 'application/json',
+	  },
+	});
+	const data = await response.json();
+	return data;
+}

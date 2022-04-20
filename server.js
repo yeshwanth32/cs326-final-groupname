@@ -37,6 +37,19 @@ async function addCommunity(res, game) {
 	}
 }
 
+async function deleteCommunity(res, game){
+	if(game === undefined){
+		// 400 - Bad Request
+		response.status(400).json({ error: 'Game is required' });
+	} else {
+		let index = communities.indexOf(game);
+		if(index !== -1){
+			communities.splice(index, 1);
+		}
+		res.json(game);
+	}
+}
+
 app.post('/addGame', async (req, res) => {
 	const options = req.body;
 	addGame(res, options.game, options.price, options.condition);
@@ -58,6 +71,11 @@ app.get('/communities', async (req, res) => {
 app.post('/communities/join', async (req, res) => {
 	const options = req.body;
 	addCommunity(res, options.game);
+});
+
+app.delete('/communities/delete', async (req, res) => {
+	const options = req.body;
+	deleteCommunity(res, options.game);
 });
 
 app.listen(port, () => {
