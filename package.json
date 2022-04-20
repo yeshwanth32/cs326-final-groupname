@@ -21,10 +21,7 @@
     "url": "https://github.com/yeshwanth32/cs326-teambandits/issues"
   },
   "homepage": "https://github.com/yeshwanth32/cs326-teambandits#readme",
-  "devDependencies": {
-    "@faker-js/faker": "^6.1.2"
-  },
-    "dependencies": {
+  "dependencies": {
     "@faker-js/faker": "^6.1.2"  ,
     "express": "^4.17.3",
     "morgan": "^1.10.0"
