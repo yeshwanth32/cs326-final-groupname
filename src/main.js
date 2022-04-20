@@ -1,6 +1,6 @@
 import * as crud from './crud.js';
 
-window.onload = function() {
+window.onload = function () {
     init();
     icons.forEach(element => {
         element.addEventListener('click', activateIcon);
@@ -20,12 +20,14 @@ window.onload = function() {
             const listing = await crud.createListing(selectedGame, price, condition);
         });
     }
+    if (document.URL.includes("groups.html")) {
+        addCommunities(document.getElementById('ul'));
+    }
 }
 
 let icons = [];
 let games = [];
 let gameNames = {};
-
 function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
@@ -71,7 +73,7 @@ async function gameInfo() {
     gameCont.classList.add("game-cont");
 
     let gameHead = document.createElement("h1");
-    
+
     gameHead.innerHTML = gameNames[this.id]
 
     let gameDis = document.createElement("h2");
@@ -79,7 +81,13 @@ async function gameInfo() {
 
     let gameGroup = document.createElement("button");
     gameGroup.innerHTML = "Join Community";
-    
+    gameGroup.id = 'join-community';
+    let gameName = gameNames[this.id]
+    gameGroup.addEventListener('click', async e => {
+        await crud.createCommunity(gameName);
+        window.location.href = 'groups.html';
+        // addCommunities(document.getElementById('ul'));
+    });
     // gameGroup.classList.add("link");
 
     let exit = document.createElement("div");
@@ -87,7 +95,7 @@ async function gameInfo() {
     exit.classList.add("exit");
 
     exit.addEventListener('click', () => document.getElementById("gameCard").remove());
-    
+
     let list = document.createElement("div");
     list.classList.add('list-wrapper');
     addRentals(list, gameNames[this.id]);
@@ -104,13 +112,13 @@ async function gameInfo() {
     gameData.appendChild(gameCont);
     gameData.appendChild(exit);
     content.appendChild(gameData);
-    content.appendChild(list);   
+    content.appendChild(list);
     card.appendChild(content);
     //adding to page
     parent.appendChild(card);
-}   
+}
 
-async function addRentals (parent, game) {
+async function addRentals(parent, game) {
     // let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];
 
     const rentals = await crud.readListings(game);
@@ -132,7 +140,7 @@ async function addRentals (parent, game) {
         let rent = document.createElement("button");
         rent.innerHTML = "Rent";
 
-        listing.appendChild(price);        
+        listing.appendChild(price);
         listing.appendChild(condition);
         listing.appendChild(seller);
         listing.appendChild(rent);
@@ -146,3 +154,35 @@ function addGameOptions(gameNames) {
         gameSelect.options.add(new Option(gameNames[id], id))
     }
 }
+
+async function addCommunities(parent) {
+
+    let communities = await crud.readCommunities();
+
+    communities.forEach(community => {
+        let list = `
+            <div class="card w-100 mb-5 card-color card-outline">
+                <h4 class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-user-alt"></i> ${community}
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-lg"><i class="fa-solid fa-message" aria-hidden="true"></i> <input
+                            type="file" hidden>
+                        </button>
+                        <button type="button" class="btn btn-lg"><i class="fa fa-headphones" aria-hidden="true"></i> <input
+                            type="file" hidden>
+                        </button>
+                        <button type="button" class="btn btn-lg"><i class="fa fa-trash" aria-hidden="true"></i> <input
+                            type="file" hidden>
+                        </button>
+                    </div>
+                </h4>
+            </div>
+        `  
+        let li = document.createElement('li');
+        li.innerHTML = list;
+        parent.appendChild(li);
+    })
+}
+

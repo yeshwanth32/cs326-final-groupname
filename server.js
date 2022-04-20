@@ -17,12 +17,24 @@ let rentals = {
 	]
 }
 
+let communities = [];
+
 async function addGame(res, game, price, condition) {
 	if (!(game in rentals)) {
 		rentals[game] = [];
 	}
 	rentals[game].push({'price': price, 'condition': condition, 'seller': faker.name.findName()})
 	res.json({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
+}
+
+async function addCommunity(res, game) {
+	if (game === undefined) {
+		// 400 - Bad Request
+		response.status(400).json({ error: 'Game is required' });
+	} else {
+		communities.push(game);
+		res.json(game);
+	}
 }
 
 app.post('/addGame', async (req, res) => {
@@ -38,6 +50,15 @@ app.get('/games/:game', async (req, res) => {
 		res.json([]);
 	}
 })
+
+app.get('/communities', async (req, res) => {
+	res.json(communities);
+});
+
+app.post('/communities/join', async (req, res) => {
+	const options = req.body;
+	addCommunity(res, options.game);
+});
 
 app.listen(port, () => {
 	console.log(`Server started on port ${port}`);
