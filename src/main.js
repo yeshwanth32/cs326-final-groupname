@@ -49,6 +49,8 @@ function activateIcon() {
 }
 
 async function gameInfo() {
+    let gameDetails = await crud.getGameDetails(this.id);
+    console.log(gameDetails);
     let parent = document.getElementById("card-wrapper");
     let card = document.createElement("div");
     card.classList.add("info-card");

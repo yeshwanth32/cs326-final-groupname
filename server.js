@@ -55,6 +55,10 @@ app.post('/addGame', async (req, res) => {
 	addGame(res, options.game, options.price, options.condition);
 })
 
+app.get("/rentalList", async(req, res) =>{
+	res.json(rentals);
+});
+
 app.get('/games/:game', async (req, res) => {
 	const options = req.params;
 	if (options.game in rentals) {
@@ -63,6 +67,11 @@ app.get('/games/:game', async (req, res) => {
 		res.json([]);
 	}
 })
+
+app.get('/game/:game', async(req, res) => {
+	const gameName = req.params.game;
+	res.json({price: faker.finance.amount(), description: faker.lorem.sentences(), trailer: faker.internet.domainName()});
+});
 
 app.get('/communities', async (req, res) => {
 	res.json(communities);
