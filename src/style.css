@@ -367,3 +367,22 @@ button {
     border: 0.1rem solid var(--accent);
 }
 
+input[type=checkbox] {
+    accent-color: var(--accent);
+}
+
+#options-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8vh;
+    color: var(--secondary-alt);
+}
+
+a:link {
+    color: var(--accent-alt);
+    text-decoration: none;
+  }
+  
+a:hover {
+    text-decoration: underline;
+  }
