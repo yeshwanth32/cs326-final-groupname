@@ -15,9 +15,10 @@ window.onload = function () {
         submit.addEventListener('click', async e => {
             let gameSelect = document.getElementById('gameSelect');
             let price = document.getElementById('add-game-price').value;
-            let condition = document.getElementById('add-game-condition').value;
+            let condition = document.getElementById('conditionSelect');
+            let selectedCondition = condition.options[condition.selectedIndex].text;
             let selectedGame = gameSelect.options[gameSelect.selectedIndex].text;
-            const listing = await crud.createListing(selectedGame, price, condition);
+            const listing = await crud.createListing(selectedGame, price, selectedCondition);
         });
     }
     if (document.URL.includes("groups.html")) {

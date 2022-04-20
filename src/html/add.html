@@ -35,10 +35,12 @@
                             <label for="price" class="form-label">Price</label>
                             <input class="form-control form-control-lg" id="add-game-price">
                         </div>
-                        <div class="mb-3">
-                            <label for="condition" class="form-label">Condition</label>
-                            <input class="form-control form-control-lg" id="add-game-condition">
-                        </div>
+                        <select class="form-select mb-3 form-select-lg" id="conditionSelect">
+                            <option selected>Condition</option>
+                            <option value="mint">Mint</option>
+                            <option value="fair">Fair</option>
+                            <option value="poor">Poor</option>
+                        </select>
                         <label class="btn">
                             <i class="fa fa-upload" aria-hidden="true"></i> <input type="file" hidden>
                             Upload Image
