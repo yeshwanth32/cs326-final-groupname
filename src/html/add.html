@@ -28,15 +28,20 @@
             <div id="form-content">
                 <form>
                     <div class="form-group form-width">
-                        <select class="form-select mb-3 form-select-lg" id="gameSelect">
-                            <option selected>Choose Game</option>
+                        <label for="game" class="form-label">Game</label>
+
+                        <select class="form-select mb-3 form-select-lg" id="gameSelect" required>
+
+                            <option value="" disabled selected hidden>Select a game</option>
                         </select>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input class="form-control form-control-lg" id="add-game-price">
+                            <input class="form-control form-control-lg" id="add-game-price" required>
                         </div>
-                        <select class="form-select mb-3 form-select-lg" id="conditionSelect">
-                            <option selected>Condition</option>
+                        <label for="condition" class="form-label">Condition</label>
+                        <select class="form-select mb-3 form-select-lg" id="conditionSelect" required>
+                            <option value="" disabled selected hidden>Select a condition</option>
+
                             <option value="mint">Mint</option>
                             <option value="fair">Fair</option>
                             <option value="poor">Poor</option>

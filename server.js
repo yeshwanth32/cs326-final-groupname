@@ -20,6 +20,21 @@ let rentals = {
 let communities = [];
 
 async function addGame(res, game, price, condition) {
+	if(game === undefined){
+		// 400 - Bad Request
+		res.status(400).json({ error: 'Game is required' });
+	}
+
+	if(price === undefined){
+		// 400 - Bad Request
+		res.status(400).json({ error: 'Price is required' });
+	}
+
+	if(condition === undefined){
+		// 400 - Bad Request
+		res.status(400).json({ error: 'Condition is required' });
+	}
+
 	if (!(game in rentals)) {
 		rentals[game] = [];
 	}
@@ -30,7 +45,11 @@ async function addGame(res, game, price, condition) {
 async function addCommunity(res, game) {
 	if (game === undefined) {
 		// 400 - Bad Request
-		response.status(400).json({ error: 'Game is required' });
+		res.status(400).json({ error: 'Game is required' });
+	}
+	else if( communities.includes(game)){
+		res.status(400).json({error: 'Already in this community'})
+	
 	} else {
 		communities.push(game);
 		res.json(game);
