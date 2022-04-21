@@ -108,6 +108,12 @@ https://umass-games.herokuapp.com/
 * On the user page, retreived all the games rented by them (including some defaults) and display them.
 * Worked on debugging and coordinating with teammates.
 
+### Rohan Adla 
+
+* Added the front end for the login pages. 
+* Created the API for new registration. 
+* Helped with user rentals and information page. 
+* Provided assistance to teammates whenever it was needed.
 
 
 
