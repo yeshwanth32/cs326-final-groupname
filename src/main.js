@@ -25,6 +25,9 @@ window.onload = async function () {
     if (document.URL.includes("groups.html")) {
         addCommunities(document.getElementById('ul'));
     }
+    if (document.URL.includes("register.html")) {
+        document.getElementById("add-game-submit").addEventListener('click', register);
+    }
 }
 
 let icons = [];
@@ -60,8 +63,32 @@ function activateIcon() {
     }
     else {
         location = this.id + ".html";
+        window.location.href = location;
     }
-    window.location.href = location;
+}
+
+async function register() {
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let email = document.getElementById('email');
+    let userAuth = {
+        'username': username,
+        'password': password,
+        'email': email
+    };
+
+    let res = await crud.register(userAuth);
+    if (!res.ok) {
+        if (res.error === 'user exists') {
+            window.alert('User already exists');
+        }
+        else {
+            window.alert('Something went wrong');
+        }
+    }
+    else{
+        window.location.href = 'login.html';
+    }
 }
 
 
