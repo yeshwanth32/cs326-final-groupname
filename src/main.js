@@ -80,6 +80,7 @@ async function register() {
         'email': email
     };
     let res = await crud.createUser(userAuth);
+    console.log(res);
     if (!res) {
         window.alert('Something went wrong');
     }

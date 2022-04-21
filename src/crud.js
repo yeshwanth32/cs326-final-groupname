@@ -105,6 +105,6 @@ export async function createUser(auth) {
 		},
 		body: JSON.stringify({ auth: auth}),
 	});
-	return;
+	return response;
 }
 
