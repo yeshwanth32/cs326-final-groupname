@@ -53,12 +53,14 @@ async function init() {
 function activateIcon() {
     let location;
     if (this.id === "user") {
-        if (loggedIn) {
-            location = "loggedin.html";
-        }
-        else {
-            location = "login.html";
-        }
+        //login page not functional yet, assuming user is logged in
+        // if (loggedIn) {
+            location = "loggedin.html";        
+        // }
+        // else {
+        //     location = "login.html";
+        // }
+        window.location.href = location;
     }
     else {
         location = this.id + ".html";
