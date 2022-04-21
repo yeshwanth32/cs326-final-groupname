@@ -17,6 +17,9 @@ let rentals = {
 	]
 }
 
+
+let userRentals = ['g1', 'g3', 'g6'];
+
 let communities = [];
 let users = {};
 
@@ -97,6 +100,25 @@ app.get('/games/:game', async (req, res) => {
 		res.json([]);
 	}
 })
+
+app.get("/user/rentals", async(req, res) =>{
+	res.json(userRentals);
+});
+
+
+app.put('/rent', async(req, res) => {
+	const gameName = req.body.game;
+	let alreadyExists = false;
+	for (let i =0 ; i < userRentals.length; i++){
+		if (gameName=== userRentals[i]){
+			alreadyExists = true
+		}
+	}
+	if (!alreadyExists){
+		userRentals.push(gameName);
+	}
+	//console.log(userRentals);
+});
 
 app.get('/game/:game', async(req, res) => {
 	const gameName = req.params.game;
