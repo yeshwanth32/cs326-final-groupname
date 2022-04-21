@@ -36,17 +36,6 @@ export async function readListings(game) {
 	}
 }
 
-export async function readRentals(){
-	try {
-		const response = await fetch("/rentalList", {
-			method: 'GET',
-		});
-		const data = await response.json();
-		return data;
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 export async function readUserRentals(user){
 	try {

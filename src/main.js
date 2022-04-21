@@ -41,7 +41,6 @@ let loggedIn = false;
 async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
-    let rentals = await crud.readRentals();
     // Need to add some way of storing the names of the games that are on the discover page, this is just temporary.
     gameNames = {
         'g1': "God of War",
