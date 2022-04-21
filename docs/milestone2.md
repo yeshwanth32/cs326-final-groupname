@@ -59,6 +59,13 @@ Upon clicking the Submit button the rental is displayed under the respective gam
 
 ![image](https://user-images.githubusercontent.com/56751146/164361305-35392507-b72b-4b5c-937b-f97f659fd19b.png)
 
+## Display Rentals
+
+Below we are displaying the games a user has rented. This is an example of read. 
+
+![image](https://user-images.githubusercontent.com/56751146/164364775-c23ee5fe-339f-4405-89b9-8e7014596188.png)
+
+
 ## Join Community
 
 Upon clicking the Join Community button below the game community will be displayed on the communities page. This is an example of create.   
