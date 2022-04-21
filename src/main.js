@@ -130,10 +130,6 @@ async function gameInfo() {
                 window.location.href = 'groups.html';
             }
         }
-        
-        
-
-        
         // addCommunities(document.getElementById('ul'));
     });
     // gameGroup.classList.add("link");

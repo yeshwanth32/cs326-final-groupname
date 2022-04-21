@@ -18,11 +18,7 @@ let rentals = {
 }
 
 let communities = [];
-// let communitiess = {
-// 	'sunny': []
-// };
 
-// let currentUser = null;
 let user_info = {
 	'sunny': 'asdflk'
 }
