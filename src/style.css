@@ -406,3 +406,16 @@ a:visited {
 #add-game-submit:hover {
     background-color: var(--accent-alt);
 }
+
+#login-button {
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 1.2vh;
+    margin-bottom: 4vh;
+    margin-top: 2vh;
+    width: 100%;
+}
+
+#login-button:hover {
+    background-color: var(--accent-alt);
+}
