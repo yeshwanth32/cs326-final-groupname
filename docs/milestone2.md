@@ -42,6 +42,13 @@
 
 # Client Interface
 
+## Sign Up 
+
+Below we are allowing a user to sign up. This is for creating a user. This is an example of create. 
+
+![image](https://user-images.githubusercontent.com/56751146/164364276-a0ded937-828c-4ced-a743-97b31003d487.png)
+
+
 ## Add Rental
 
 Below we are adding a rental game. We are providing information about the game's name, price, and condition. This is an example of create.  
