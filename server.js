@@ -18,6 +18,7 @@ let rentals = {
 }
 
 let communities = [];
+let users = {};
 
 async function addGame(res, game, price, condition) {
 	if(game === undefined){
@@ -69,6 +70,16 @@ async function deleteCommunity(res, game){
 	}
 }
 
+async function addUser(res, auth){
+	if (users[auth.username]) {
+		// 400 - Bad Request
+		res.status(400).json({ error: 'user exists' });
+	} else {
+		users[auth.username] = auth.password;
+		res.json(auth);
+	}
+}
+
 app.post('/addGame', async (req, res) => {
 	const options = req.body;
 	addGame(res, options.game, options.price, options.condition);
@@ -109,3 +120,11 @@ app.delete('/communities/delete', async (req, res) => {
 app.listen(port, () => {
 	console.log(`Server started on port ${port}`);
 });
+
+app.post('/user/join', async (req, res) => {
+	const options = req.body;
+	addUser(res, options.auth);
+});
+
+
+

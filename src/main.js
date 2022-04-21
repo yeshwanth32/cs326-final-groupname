@@ -63,6 +63,30 @@ function activateIcon() {
     window.location.href = location;
 }
 
+async function register() {
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let email = document.getElementById('email');
+    let userAuth = {
+        'username': username,
+        'password': password,
+        'email': email
+    };
+
+    let res = await crud.register(userAuth);
+    if (!res.ok) {
+        if (res.error === 'user exists') {
+            window.alert('User already exists');
+        }
+        else {
+            window.alert('Something went wrong');
+        }
+    }
+    else{
+        window.location.href = 'login.html';
+    }
+}
+
 async function gameInfo() {
     let gameDetails = await crud.getGameDetails(this.id);
     console.log(gameDetails);
