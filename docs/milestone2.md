@@ -1,4 +1,14 @@
 # Application APIs
+
+## /user/join
+
+* Allows a new user to register on the sign up page. 
+* Sends a POST request to the server. 
+
+## /login
+
+* Allows an already existing user to login. 
+* Sends a GET request to the server. 
  
 ## /addGame
 
@@ -29,3 +39,5 @@
 
 * Displays a game's description. 
 * Sends a GET request to the server. 
+
+
