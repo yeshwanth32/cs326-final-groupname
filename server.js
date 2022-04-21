@@ -17,6 +17,9 @@ let rentals = {
 	]
 }
 
+
+let userRentals = [];
+
 let communities = [];
 
 async function addGame(res, game, price, condition) {
@@ -86,6 +89,11 @@ app.get('/games/:game', async (req, res) => {
 		res.json([]);
 	}
 })
+
+app.put('/rent/:game', async(req, res) => {
+	const gameName = req.params.game;
+	userRentals.push(gameName);
+});
 
 app.get('/game/:game', async(req, res) => {
 	const gameName = req.params.game;

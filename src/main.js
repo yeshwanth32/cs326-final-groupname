@@ -2,6 +2,7 @@ import * as crud from './crud.js';
 
 window.onload = async function () {
     await init();
+    await addRentedGames();
     icons.forEach(element => {
         element.addEventListener('click', activateIcon);
     });
@@ -31,11 +32,11 @@ let games = [];
 let gameNames = {};
 let loggedIn = false;
 
+
 async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
     let rentals = await crud.readRentals();
-    console.log(rentals);
     // Need to add some way of storing the names of the games that are on the discover page, this is just temporary.
     gameNames = {
         'g1': "God of War",
@@ -61,6 +62,31 @@ function activateIcon() {
         location = this.id + ".html";
     }
     window.location.href = location;
+}
+
+
+async function addRentedGames(){
+    let images = {
+        'g1': "img2",
+        'g2': "img3",
+        'g3': "img1",
+        'g4': "img4",
+        'g5': "img5",
+        'g6': "img6",
+    }
+    let rentedGames = ['g1', 'g6'];
+    let element = document.getElementById("gamesRented");
+    for (let i = 0; i < rentedGames.length; i++){
+        console.log("here!");
+        let div = document.createElement("div");
+        div.innerHTML = `
+        <div class="game-wrapper">
+                    <img src="../img/${images[rentedGames[i]]}.jpeg" class="game">
+        </div>
+        `
+        element.appendChild(div);
+    }
+
 }
 
 async function gameInfo() {
