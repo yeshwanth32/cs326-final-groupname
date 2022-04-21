@@ -386,3 +386,13 @@ a:link {
 a:hover {
     text-decoration: underline;
   }
+
+a:visited {
+    color: var(--accent-alt);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+#add-submit {
+    background-color: #7a7ae6;
+}
