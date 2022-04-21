@@ -85,3 +85,16 @@ export async function deleteCommunity(game) {
 	const data = await response.json();
 	return data;
 }
+
+export async function login(username, password) {
+	try {
+		const response = await fetch(`/login?username=${username}&password=${password}`, {
+			method: 'GET',
+		});
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+

@@ -18,6 +18,14 @@ let rentals = {
 }
 
 let communities = [];
+// let communitiess = {
+// 	'sunny': []
+// };
+
+// let currentUser = null;
+let user_info = {
+	'sunny': 'asdflk'
+}
 
 async function addGame(res, game, price, condition) {
 	if(game === undefined){
@@ -104,6 +112,22 @@ app.post('/communities/join', async (req, res) => {
 app.delete('/communities/delete', async (req, res) => {
 	const options = req.body;
 	deleteCommunity(res, options.game);
+});
+
+app.get('/login', async (req, res) => {
+	const options = req.query;
+	console.log(options)
+	if (options.username in user_info) {
+		console.log('enter 1')
+
+		if (options.password === user_info[options.username]) {
+			console.log('enter 2')
+			res.status(200).json({message: 'success'});
+		}
+	}
+	else {
+		res.status(400).json({ error: 'Invalid Credentials' });
+	}
 });
 
 app.listen(port, () => {

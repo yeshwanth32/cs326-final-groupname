@@ -1,5 +1,6 @@
 import * as crud from './crud.js';
 
+let ls = window.localStorage;
 window.onload = async function () {
     await init();
     icons.forEach(element => {
@@ -24,12 +25,24 @@ window.onload = async function () {
     if (document.URL.includes("groups.html")) {
         addCommunities(document.getElementById('ul'));
     }
+    if (document.URL.includes("login.html")) {
+        let login_button = document.getElementById('login-button');
+        login_button.addEventListener('click', async e => {
+            console.log('hello')
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let valid = await crud.login(username, password);
+            if (valid.message === 'success') {
+                ls.setItem('loggedIn', 'true');
+                window.location.href = "loggedin.html";
+            }
+        })
+    }
 }
 
 let icons = [];
 let games = [];
 let gameNames = {};
-let loggedIn = false;
 
 async function init() {
     icons = document.querySelectorAll(".icon");
@@ -49,6 +62,11 @@ async function init() {
 
 function activateIcon() {
     let location;
+    let loggedInStr = ls.getItem('loggedIn');
+    let loggedIn = false;
+    if (loggedInStr === 'true') {
+        loggedIn = true;
+    }
     if (this.id === "user") {
         if (loggedIn) {
             location = "loggedin.html";
