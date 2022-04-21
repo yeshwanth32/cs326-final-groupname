@@ -96,14 +96,17 @@ https://umass-games.herokuapp.com/
 ### Aryaan Bomma 
 
 * Contributed to API planning.
-* Worked on the following endpoints:
-/addGame
-/games/:game
-/communities
-/communities/join
-/login
+* Worked on the following endpoints: /addGame, /games/:game, /communities, /communities/join, /login 
 * Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend. 
 * Provided assistance to teammates whenever it was needed.
+
+### Yeshwanth Bommareddy 
+
+* Worked on brainstorming the api endpoints. 
+* Added the route to retreive the game data from the server, and when the server responds with a faker js I display the data with the game. 
+* Added the route to add a rental listing to the user when they press the rent button on a game listing.
+* On the user page, retreived all the games rented by them (including some defaults) and display them.
+* Worked on debugging and coordinating with teammates.
 
 
 
