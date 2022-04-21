@@ -69,6 +69,11 @@ Below we are clicking on the delete icon of the Spider-Man: Miles Morales game.
 
 ![image](https://user-images.githubusercontent.com/56751146/164362951-12b7dfbf-2d1e-4a4e-bc03-f481e02726a7.png)
 
+After clicking on the delete button we can see that Spider-Man: Miles Morales game has been deleted. 
+
+![image](https://user-images.githubusercontent.com/56751146/164363344-d4a1cdde-e2c3-418a-a7ac-ffaa278bbb1e.png)
+
+
 
 
 
