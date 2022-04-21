@@ -10,6 +10,20 @@ export async function createListing(game, price, condition) {
 	return data;
 }
 
+
+export async function addRental(game, user) {
+	const response = await fetch(`/rent`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({game: game}),
+	});
+	const data = await response.json();
+	return data;
+}
+
+
 export async function readListings(game) {
 	try {
 		const response = await fetch(`/games/${game}`, {
@@ -22,9 +36,10 @@ export async function readListings(game) {
 	}
 }
 
-export async function readRentals(){
+
+export async function readUserRentals(user){
 	try {
-		const response = await fetch("/rentalList", {
+		const response = await fetch("/user/rentals", {
 			method: 'GET',
 		});
 		const data = await response.json();
@@ -36,10 +51,6 @@ export async function readRentals(){
 
 export async function getGameDetails(game){
 	try {
-		//url = new URL("/game");
-		//document.URL
-		//`/games/${game}`
-		//url.searchParams.set('name', game);
 		const response = await fetch("/game/name="+game, {
 			method: 'GET',
 		});
@@ -96,5 +107,16 @@ export async function login(username, password) {
 	} catch (err) {
 		console.log(err);
 	}
+}
+
+export async function createUser(auth) {
+	const response = await fetch(`/user/join`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ auth: auth}),
+	});
+	return response;
 }
 

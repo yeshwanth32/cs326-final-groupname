@@ -10,6 +10,9 @@ window.onload = async function () {
         element.id = `g${index + 1}`;
         element.addEventListener('click', gameInfo);
     });
+    if (document.URL.includes("loggedin.html")){
+        await addRentedGames();
+    }
     if (document.URL.includes("add.html")) {
         addGameOptions(gameNames);
         let submit = document.getElementById('add-game-submit');
@@ -38,17 +41,19 @@ window.onload = async function () {
             }
         })
     }
+    if (document.URL.includes("register.html")) {
+        document.getElementById("add-game-submit").addEventListener('click', register);
+    }
 }
 
 let icons = [];
 let games = [];
 let gameNames = {};
 
+
 async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
-    let rentals = await crud.readRentals();
-    console.log(rentals);
     // Need to add some way of storing the names of the games that are on the discover page, this is just temporary.
     gameNames = {
         'g1': "God of War",
@@ -68,22 +73,75 @@ function activateIcon() {
         loggedIn = true;
     }
     if (this.id === "user") {
+        //login page not functional yet due to lack of database, assuming user is logged in
         if (loggedIn) {
-            location = "loggedin.html";
+            location = "loggedin.html";        
         }
         else {
             location = "login.html";
         }
+        window.location.href = location;
     }
     else {
         location = this.id + ".html";
+        window.location.href = location;
     }
-    window.location.href = location;
+}
+
+async function register() {
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+    let userAuth = {
+        'username': username,
+        'password': password,
+        'email': email
+    };
+    let res = await crud.createUser(userAuth);
+    console.log(res);
+    if (!res) {
+        window.alert('Something went wrong');
+    }
+    else if (!res.ok) {
+        if (res.error === 'user exists') {
+            window.alert('User already exists');
+        }
+        else {
+            window.alert('Something went wrong');
+        }
+    }
+    else {
+        window.location.href = 'login.html';
+    }
+}
+
+
+async function addRentedGames(){
+    let images = {
+        'g1': "img2",
+        'g2': "img3",
+        'g3': "img1",
+        'g4': "img4",
+        'g5': "img5",
+        'g6': "img6",
+    }
+    let rentedGames = await crud.readUserRentals("temp");
+    let element = document.getElementById("gamesRented");
+    for (let i = 0; i < rentedGames.length; i++){
+        let div = document.createElement("div");
+        div.className = "game-wrapper";
+        div.innerHTML = `
+            <img src="../img/${images[rentedGames[i]]}.jpeg" class="game" id=${rentedGames[i]}>
+        `
+        div.children[0].addEventListener('click', gameInfo);
+        element.appendChild(div);
+    }
+
 }
 
 async function gameInfo() {
+    console.log("here1");
     let gameDetails = await crud.getGameDetails(this.id);
-    console.log(gameDetails);
     let parent = document.getElementById("card-wrapper");
     let card = document.createElement("div");
     card.classList.add("info-card");
@@ -166,7 +224,14 @@ async function addRentals(parent, game) {
     // let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];
 
     const rentals = await crud.readListings(game);
-
+    let gameCodes = {
+        "God of War": "g1",
+        "Fifa 21" : "g2",
+        "Pokemon - Legends of Arceus": "g3",
+        "Elden Ring": "g4",
+        "Spider-Man: Miles Morales": "g5",
+        "Super Mario Party" : "g6",
+    }
     rentals.forEach(i => {
         let listing = document.createElement("div");
         listing.classList.add("listing");
@@ -183,6 +248,9 @@ async function addRentals(parent, game) {
 
         let rent = document.createElement("button");
         rent.innerHTML = "Rent";
+        rent.addEventListener("click", async e =>{
+            await crud.addRental(gameCodes[game], "temp");
+        })
 
         listing.appendChild(price);
         listing.appendChild(condition);
@@ -234,6 +302,5 @@ async function addCommunities(parent) {
         });
     })
 }
-
 
 

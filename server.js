@@ -17,11 +17,10 @@ let rentals = {
 	]
 }
 
-let communities = [];
+let userRentals = ['g1', 'g3', 'g6'];
 
-let user_info = {
-	'sunny': 'asdflk'
-}
+let communities = [];
+let users = { 'test': 'test'};
 
 async function addGame(res, game, price, condition) {
 	if(game === undefined){
@@ -73,14 +72,21 @@ async function deleteCommunity(res, game){
 	}
 }
 
+async function addUser(res, auth){
+	if (users[auth.username]) {
+		// 400 - Bad Request
+		res.status(400).json({ error: 'user exists' });
+	} else {
+		users[auth.username] = auth.password;
+		res.json(auth);
+	}
+}
+
 app.post('/addGame', async (req, res) => {
 	const options = req.body;
 	addGame(res, options.game, options.price, options.condition);
 })
 
-app.get("/rentalList", async(req, res) =>{
-	res.json(rentals);
-});
 
 app.get('/games/:game', async (req, res) => {
 	const options = req.params;
@@ -90,6 +96,25 @@ app.get('/games/:game', async (req, res) => {
 		res.json([]);
 	}
 })
+
+app.get("/user/rentals", async(req, res) =>{
+	res.json(userRentals);
+});
+
+
+app.put('/rent', async(req, res) => {
+	const gameName = req.body.game;
+	let alreadyExists = false;
+	for (let i =0 ; i < userRentals.length; i++){
+		if (gameName=== userRentals[i]){
+			alreadyExists = true
+		}
+	}
+	if (!alreadyExists){
+		userRentals.push(gameName);
+	}
+	//console.log(userRentals);
+});
 
 app.get('/game/:game', async(req, res) => {
 	const gameName = req.params.game;
@@ -113,10 +138,10 @@ app.delete('/communities/delete', async (req, res) => {
 app.get('/login', async (req, res) => {
 	const options = req.query;
 	console.log(options)
-	if (options.username in user_info) {
+	if (options.username in users) {
 		console.log('enter 1')
 
-		if (options.password === user_info[options.username]) {
+		if (options.password === users[options.username]) {
 			console.log('enter 2')
 			res.status(200).json({message: 'success'});
 		}
@@ -124,6 +149,11 @@ app.get('/login', async (req, res) => {
 	else {
 		res.status(400).json({ error: 'Invalid Credentials' });
 	}
+});
+
+app.post('/user/join', async (req, res) => {
+	const options = req.body;
+	addUser(res, options.auth);
 });
 
 app.listen(port, () => {
