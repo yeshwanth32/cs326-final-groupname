@@ -91,6 +91,20 @@ After clicking on the delete button we can see that Spider-Man: Miles Morales ga
 
 https://umass-games.herokuapp.com/
 
+# Breakdown of the Division of Labor 
+
+### Aryaan Bomma 
+
+* Contributed to API planning.
+* Worked on the following endpoints:
+/addGame
+/games/:game
+/communities
+/communities/join
+/login
+* Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend. 
+* Provided assistance to teammates whenever it was needed.
+
 
 
 
