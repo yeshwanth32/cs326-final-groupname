@@ -56,7 +56,7 @@ async function init() {
 function activateIcon() {
     let location;
     if (this.id === "user") {
-        //login page not functional yet, assuming user is logged in
+        //login page not functional yet due to lack of database, assuming user is logged in
         // if (loggedIn) {
             location = "loggedin.html";        
         // }
