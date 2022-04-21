@@ -2,7 +2,6 @@ import * as crud from './crud.js';
 
 window.onload = async function () {
     await init();
-    await addRentedGames();
     icons.forEach(element => {
         element.addEventListener('click', activateIcon);
     });
@@ -10,6 +9,9 @@ window.onload = async function () {
         element.id = `g${index + 1}`;
         element.addEventListener('click', gameInfo);
     });
+    if (document.URL.includes("loggedin.html")){
+        await addRentedGames();
+    }
     if (document.URL.includes("add.html")) {
         addGameOptions(gameNames);
         let submit = document.getElementById('add-game-submit');
@@ -101,24 +103,23 @@ async function addRentedGames(){
         'g5': "img5",
         'g6': "img6",
     }
-    let rentedGames = ['g1', 'g6'];
+    let rentedGames = await crud.readUserRentals("temp");
     let element = document.getElementById("gamesRented");
     for (let i = 0; i < rentedGames.length; i++){
-        console.log("here!");
         let div = document.createElement("div");
+        div.className = "game-wrapper";
         div.innerHTML = `
-        <div class="game-wrapper">
-                    <img src="../img/${images[rentedGames[i]]}.jpeg" class="game">
-        </div>
+            <img src="../img/${images[rentedGames[i]]}.jpeg" class="game" id=${rentedGames[i]}>
         `
+        div.children[0].addEventListener('click', gameInfo);
         element.appendChild(div);
     }
 
 }
 
 async function gameInfo() {
+    console.log("here1");
     let gameDetails = await crud.getGameDetails(this.id);
-    console.log(gameDetails);
     let parent = document.getElementById("card-wrapper");
     let card = document.createElement("div");
     card.classList.add("info-card");
@@ -166,7 +167,6 @@ async function gameInfo() {
             }
         }
         
-        
 
         
         // addCommunities(document.getElementById('ul'));
@@ -205,7 +205,14 @@ async function addRentals(parent, game) {
     // let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];
 
     const rentals = await crud.readListings(game);
-
+    let gameCodes = {
+        "God of War": "g1",
+        "Fifa 21" : "g2",
+        "Pokemon - Legends of Arceus": "g3",
+        "Elden Ring": "g4",
+        "Spider-Man: Miles Morales": "g5",
+        "Super Mario Party" : "g6",
+    }
     rentals.forEach(i => {
         let listing = document.createElement("div");
         listing.classList.add("listing");
@@ -222,6 +229,9 @@ async function addRentals(parent, game) {
 
         let rent = document.createElement("button");
         rent.innerHTML = "Rent";
+        rent.addEventListener("click", async e =>{
+            await crud.addRental(gameCodes[game], "temp");
+        })
 
         listing.appendChild(price);
         listing.appendChild(condition);
