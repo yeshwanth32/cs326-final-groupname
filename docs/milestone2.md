@@ -40,4 +40,36 @@
 * Displays a game's description. 
 * Sends a GET request to the server. 
 
+# Client Interface
+
+## Add Rental
+
+Below we are adding a rental game. We are providing information about the game's name, price, and condition. This is an example of create.  
+
+![image](https://user-images.githubusercontent.com/56751146/164360649-3f1032d7-eeaf-4171-a101-376a43b88af5.png)
+
+Upon clicking the Submit button the rental is displayed under the respective game. 
+
+![image](https://user-images.githubusercontent.com/56751146/164361305-35392507-b72b-4b5c-937b-f97f659fd19b.png)
+
+## Join Community
+
+Upon clicking the Join Community button below the game community will be displayed on the communities page. This is an example of create.   
+
+![image](https://user-images.githubusercontent.com/56751146/164362262-0e594cb2-19ad-4276-b126-c5939e2f6ffa.png)
+
+Upon joining a particular game's community it gets displayed in the communities page below. 
+
+![image](https://user-images.githubusercontent.com/56751146/164362610-732c377b-6c9e-4e79-a9d2-e27309bda750.png)
+
+## Delete Community 
+
+Upon clicking the delete button of a community that particular community will get deleted for the user. This is an example of delete. 
+Below we are clicking on the delete icon of the Spider-Man: Miles Morales game. 
+
+![image](https://user-images.githubusercontent.com/56751146/164362951-12b7dfbf-2d1e-4a4e-bc03-f481e02726a7.png)
+
+
+
+
 
