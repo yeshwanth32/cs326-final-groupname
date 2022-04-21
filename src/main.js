@@ -95,7 +95,7 @@ async function gameInfo() {
     gameHead.innerHTML = gameNames[this.id]
 
     let gameDis = document.createElement("h2");
-    gameDis.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum leo vel orci porta non. Venenatis urna cursus eget nunc scelerisque viverra mauris in."
+    gameDis.innerHTML = gameDetails["description"];
 
     let gameGroup = document.createElement("button");
     gameGroup.innerHTML = "Join Community";
