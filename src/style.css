@@ -242,7 +242,7 @@ h2{
     align-content: center;
     padding: 50px;
     height: 30vh;
-    scrollbar-width: 0px;
+    overflow-y: scroll;
 }
 
 .game-cont > h2 {
