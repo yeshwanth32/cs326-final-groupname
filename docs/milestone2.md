@@ -97,7 +97,7 @@ https://umass-games.herokuapp.com/
 
 * Contributed to API planning.
 * Worked on the following endpoints: /addGame, /games/:game, /communities, /communities/join, /login 
-* Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend. 
+* Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend.  
 * Provided assistance to teammates whenever it was needed.
 
 ### Yeshwanth Bommareddy 
@@ -112,6 +112,7 @@ https://umass-games.herokuapp.com/
 
 * Added the front end for the login pages. 
 * Created the API for new registration. 
+* Worked on /user/join endpoint.  
 * Helped with user rentals and information page. 
 * Provided assistance to teammates whenever it was needed.
 
