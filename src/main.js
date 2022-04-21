@@ -24,6 +24,9 @@ window.onload = async function () {
     if (document.URL.includes("groups.html")) {
         addCommunities(document.getElementById('ul'));
     }
+    if (document.URL.includes("register.html")) {
+        document.getElementById("add-game-submit").addEventListener('click', register);
+    }
 }
 
 let icons = [];
@@ -59,8 +62,8 @@ function activateIcon() {
     }
     else {
         location = this.id + ".html";
+        window.location.href = location;
     }
-    window.location.href = location;
 }
 
 async function register() {
