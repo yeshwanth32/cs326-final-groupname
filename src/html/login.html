@@ -15,46 +15,41 @@
 
 <body>
     <div id="nav">
-        <i class="fa-solid fa-user fa-2x icon" id="user"></i>
+        <i class="fa-solid fa-user fa-2x icon icon-active" id="user"></i>
         <i class="fa-solid fa-compass fa-2x icon" id="index"></i>
-        <i class="fa-solid fa-circle-plus fa-2x icon-active" id="add"></i>
+        <i class="fa-solid fa-circle-plus fa-2x icon" id="add"></i>
         <i class="fa-solid fa-user-group fa-2x icon" id="groups"></i>
     </div>
     <div id="card-wrapper">
         <div id="form-card">
             <div id="form-banner">
-                Add Game
+                Login
             </div>
             <div id="form-content">
                 <form>
                     <div class="form-group form-width">
-                        <label for="game" class="form-label">Game</label>
-
-                        <select class="form-select mb-3 form-select-lg" id="gameSelect" required>
-
-                            <option value="" disabled selected hidden>Select a game</option>
-                        </select>
                         <div class="mb-3">
-                            <label for="price" class="form-label">Price</label>
-                            <input class="form-control form-control-lg" id="add-game-price" required>
+                            <label for="username" class="form-label">Username</label>
+                            <input class="form-control form-control-lg" id="username" required>
                         </div>
-                        <label for="condition" class="form-label">Condition</label>
-                        <select class="form-select mb-3 form-select-lg" id="conditionSelect" required>
-                            <option value="" disabled selected hidden>Select a condition</option>
-
-                            <option value="mint">Mint</option>
-                            <option value="fair">Fair</option>
-                            <option value="poor">Poor</option>
-                        </select>
-                        <label class="btn">
-                            <i class="fa fa-upload" aria-hidden="true"></i> <input type="file" hidden>
-                            Upload Image
-                        </label>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input class="form-control form-control-lg" id="password" required>
+                        </div>
+                        <div id="options-container">
+                            <div>
+                                <input type="checkbox" id="remember" name="scales">                           
+                                <label for="remember">Remember Me?</label>
+                            </div>
+                            <div>
+                                Don't have an account?
+                                <a href="./register.html">Sign up</a>
+                            </div>
+                        </div>
                         <div class="mx-auto text-center">
-                            <button class="btn" id="add-game-submit">Submit</button>
+                            <button class="btn" id="add-game-submit">Login</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

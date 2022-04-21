@@ -29,6 +29,8 @@ window.onload = async function () {
 let icons = [];
 let games = [];
 let gameNames = {};
+let loggedIn = false;
+
 async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
@@ -46,7 +48,18 @@ async function init() {
 }
 
 function activateIcon() {
-    let location = this.id + ".html";
+    let location;
+    if (this.id === "user") {
+        if (loggedIn) {
+            location = "loggedin.html";
+        }
+        else {
+            location = "login.html";
+        }
+    }
+    else {
+        location = this.id + ".html";
+    }
     window.location.href = location;
 }
 
@@ -88,9 +101,21 @@ async function gameInfo() {
     gameGroup.innerHTML = "Join Community";
     gameGroup.id = 'join-community';
     let gameName = gameNames[this.id]
+
     gameGroup.addEventListener('click', async e => {
-        await crud.createCommunity(gameName);
-        window.location.href = 'groups.html';
+            let res = await crud.createCommunity(gameName);
+            if (!res.ok) {
+                if (res.error === 'Already in this community') {
+                    window.alert('You are already in this community!');
+                }
+            else{
+                window.location.href = 'groups.html';
+            }
+        }
+        
+        
+
+        
         // addCommunities(document.getElementById('ul'));
     });
     // gameGroup.classList.add("link");

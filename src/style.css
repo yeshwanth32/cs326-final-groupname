@@ -177,12 +177,14 @@ h1 {
     color: var(--white-alt2);
     font-size: 3rem;
     align-self: center;
+    margin: 0 0 2vh 0;
 }
 
 h2{
     color: var(--white-alt2);
     font-size: 2rem;
     align-self: center;
+    margin: 0 0 2vh 0;
 }
 
 #u {
@@ -241,7 +243,6 @@ h2{
     padding: 50px;
     height: 30vh;
     scrollbar-width: 0px;
-    overflow-y: scroll;
 }
 
 .game-cont > h2 {
@@ -348,4 +349,50 @@ button {
 .link {
     color: var(--accent-alt);
     cursor: pointer;
+}
+
+#join-community {
+    background-color: var(--primary-alt);
+    color: var(--accent);
+    box-sizing: border-box;
+    border: 0.1rem solid var(--primary);
+    border-radius: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 1.5vh;
+}
+
+
+#join-community:hover {
+    border: 0.1rem solid var(--accent);
+}
+
+input[type=checkbox] {
+    accent-color: var(--accent);
+}
+
+#options-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8vh;
+    color: var(--secondary-alt);
+}
+
+a:link {
+    color: var(--accent-alt);
+    text-decoration: none;
+  }
+  
+a:hover {
+    text-decoration: underline;
+  }
+
+a:visited {
+    color: var(--accent-alt);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+#add-submit {
+    background-color: #7a7ae6;
 }
