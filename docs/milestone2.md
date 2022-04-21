@@ -116,6 +116,17 @@ https://umass-games.herokuapp.com/
 * Helped with user rentals and information page. 
 * Provided assistance to teammates whenever it was needed.
 
+### Keerthana Mandava 
+
+* Contributed to API planning. 
+* Created the /communities/delete endpoint. 
+* Added error handling to /addGame, /communities/join, and /communities/delete endpoints. 
+* Wrote the deleteCommunity function to perform CRUD operations on the server and made sure any changes made on the server are reflected on the front end.
+* Added functionality to make sure a user can not join the same community again.
+* Made changes to the frontend of the Add Game page to make it fully functional. 
+* Created the milestone2.md document.
+
+
 
 
 
