@@ -10,10 +10,10 @@ UMass Game Exchange is a platform that brings gamers together. This is a website
 
 ## Team Members
 
-Aryaan Bomma - aryaanb
-Keerthana Mandava - KM090901
-Rohan Adla - rohan-ynwa
-Yeshwanth Bommareddy - yeshwanth32
+1. Aryaan Bomma - aryaanb
+2. Keerthana Mandava - KM090901
+3. Rohan Adla - rohan-ynwa
+4. Yeshwanth Bommareddy - yeshwanth32
 
 
 
