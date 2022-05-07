@@ -6,6 +6,7 @@ import faker from '@faker-js/faker'
 import dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
 
+import { GameRentalsDatabase } from './db.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,16 +20,14 @@ dotenv.config()
 let client = await MongoClient.connect(process.env["DATABASE_URL"]);
 let dbo = client.db("mydb");
 
-let rentals = {
-	'God of War': [
-		{'price': 10, 'condition': 'fair', 'seller': 'Iris'}
-	]
-}
+const rentalsDB = new GameRentalsDatabase(process.env.DATABASE_URL);
+await rentalsDB.connect()
 
 let userRentals = ['g1', 'g3', 'g6'];
 
 let communities = [];
 let users = { 'test': 'test'};
+
 
 async function addGame(res, game, price, condition) {
 	if(game === undefined){
@@ -46,11 +45,8 @@ async function addGame(res, game, price, condition) {
 		res.status(400).json({ error: 'Condition is required' });
 	}
 
-	if (!(game in rentals)) {
-		rentals[game] = [];
-	}
-	rentals[game].push({'price': price, 'condition': condition, 'seller': faker.name.findName()})
-	res.json({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
+	let data = await rentalsDB.addRental(game, price, condition);
+	res.json(data);
 }
 
 async function addCommunity(res, game) {
@@ -106,20 +102,22 @@ app.post('/addGame', async (req, res) => {
 	addGame(res, options.game, options.price, options.condition);
 })
 
-
 app.get('/games/:game', async (req, res) => {
 	const options = req.params;
-	if (options.game in rentals) {
-		res.json(rentals[options.game]);
-	} else {
-		res.json([]);
+	const rentals = await rentalsDB.getGameRentals(options.game);
+	let result = [];
+	for (let rental of rentals) {
+		let price = rental['price'];
+		let condition = rental['condition'];
+		result.push({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
 	}
+	res.json(result);
 })
+
 
 app.get("/user/rentals", async(req, res) =>{
 	res.json(userRentals);
 });
-
 
 app.put('/rent', async(req, res) => {
 	const gameName = req.body.game;
@@ -158,10 +156,7 @@ app.get('/login', async (req, res) => {
 	const options = req.query;
 	console.log(options)
 	if (options.username in users) {
-		console.log('enter 1')
-
 		if (options.password === users[options.username]) {
-			console.log('enter 2')
 			res.status(200).json({message: 'success'});
 		}
 	}
