@@ -33,12 +33,12 @@ window.onload = async function () {
     if (document.URL.includes("login.html")) {
         let login_button = document.getElementById('login-button');
         login_button.addEventListener('click', async e => {
-            console.log('hello')
             let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
             let valid = await crud.login(username, password);
             if (valid.message === 'success') {
                 ls.setItem('loggedIn', 'true');
+                ls.setItem("loggedInUser", username);
                 window.location.href = "loggedin.html";
             }
         })
