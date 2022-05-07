@@ -157,21 +157,19 @@ app.get('/login', async (req, res) => {
 	const options = req.query;
 	console.log(options)
 
-	dbo.collection("users").find({"name": auth.username}).toArray(function(err, result) {
+	dbo.collection("users").find({"name": options.username}).toArray(function(err, result) {
 		if (err) throw err;
 		if (result.length == 0){
-			let userObj = {};
-			let userinfo = {};
-			userinfo["password"] = auth.password;
-			userObj[auth.username] = userinfo;
-			dbo.collection("users").insertOne(userObj, function(err, res) {
-				if (err) throw err;
-				console.log("1 user inserted");
-				response.json(auth);
-			});
+			res.status(400).json({ error: 'username does not exist' });			
 		}
 		else{
-			response.status(400).json({ error: 'user exists' });
+			let user = result[0];
+			if (user['info']['password'] === options.password){
+				res.status(200).json({message: 'success'});
+			}
+			else{
+				res.status(400).json({ error: 'password is incorrect' });
+			}
 		}
 	});	
 
@@ -179,11 +177,11 @@ app.get('/login', async (req, res) => {
 
 	if (options.username in users) {
 		if (options.password === users[options.username]) {
-			res.status(200).json({message: 'success'});
+			
 		}
 	}
 	else {
-		res.status(400).json({ error: 'Invalid Credentials' });
+		
 	}
 });
 
