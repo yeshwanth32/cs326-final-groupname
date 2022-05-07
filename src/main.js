@@ -44,7 +44,7 @@ window.onload = async function () {
         })
     }
     if (document.URL.includes("register.html")) {
-        document.getElementById("add-user-submit").addEventListener('click', register);
+        document.getElementById("add-game-submit").addEventListener('click', register);
     }
 }
 
