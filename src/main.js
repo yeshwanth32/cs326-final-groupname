@@ -1,5 +1,7 @@
 import * as crud from './crud.js';
 
+
+
 let ls = window.localStorage;
 window.onload = async function () {
     await init();
@@ -42,7 +44,7 @@ window.onload = async function () {
         })
     }
     if (document.URL.includes("register.html")) {
-        document.getElementById("add-game-submit").addEventListener('click', register);
+        document.getElementById("add-user-submit").addEventListener('click', register);
     }
 }
 
@@ -219,6 +221,10 @@ async function gameInfo() {
     //adding to page
     parent.appendChild(card);
 }
+
+
+
+
 
 async function addRentals(parent, game) {
     // let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];

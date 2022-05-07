@@ -115,7 +115,7 @@ export async function createUser(auth) {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ auth: auth}),
+		body: JSON.stringify({auth: auth}),
 	});
 	return response;
 }

@@ -1,15 +1,23 @@
 import express from 'express';
 import logger from 'morgan';
 import faker from '@faker-js/faker'
+//import users from './users.js';
+//import auth from './auth.js';
+import dotenv from "dotenv";
+import { MongoClient } from 'mongodb';
+
 
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use(express.static('src'));
 app.use(express.static('src/html'));
+
+dotenv.config()
+let client = await MongoClient.connect(process.env["DATABASE_URL"]);
+let dbo = client.db("mydb");
 
 let rentals = {
 	'God of War': [
@@ -72,14 +80,25 @@ async function deleteCommunity(res, game){
 	}
 }
 
-async function addUser(res, auth){
-	if (users[auth.username]) {
-		// 400 - Bad Request
-		res.status(400).json({ error: 'user exists' });
-	} else {
-		users[auth.username] = auth.password;
-		res.json(auth);
-	}
+async function addUser(response, auth){
+	let userExists = false
+	dbo.collection("users").find({"name": auth.username}).toArray(function(err, result) {
+		if (err) throw err;
+		if (result.length == 0){
+			let userObj = {};
+			let userinfo = {};
+			userinfo["password"] = auth.password;
+			userObj[auth.username] = userinfo;
+			dbo.collection("users").insertOne(userObj, function(err, res) {
+				if (err) throw err;
+				console.log("1 user inserted");
+				response.json(auth);
+			});
+		}
+		else{
+			response.status(400).json({ error: 'user exists' });
+		}
+	});	
 }
 
 app.post('/addGame', async (req, res) => {
@@ -153,6 +172,7 @@ app.get('/login', async (req, res) => {
 
 app.post('/user/join', async (req, res) => {
 	const options = req.body;
+	console.log(options);
 	addUser(res, options.auth);
 });
 
