@@ -83,8 +83,9 @@ async function addUser(response, auth){
 		if (result.length == 0){
 			let userObj = {};
 			let userinfo = {};
+			userObj["name"] = auth.username;
 			userinfo["password"] = auth.password;
-			userObj[auth.username] = userinfo;
+			userObj["info"] = userinfo;
 			dbo.collection("users").insertOne(userObj, function(err, res) {
 				if (err) throw err;
 				console.log("1 user inserted");
@@ -155,6 +156,27 @@ app.delete('/communities/delete', async (req, res) => {
 app.get('/login', async (req, res) => {
 	const options = req.query;
 	console.log(options)
+
+	dbo.collection("users").find({"name": auth.username}).toArray(function(err, result) {
+		if (err) throw err;
+		if (result.length == 0){
+			let userObj = {};
+			let userinfo = {};
+			userinfo["password"] = auth.password;
+			userObj[auth.username] = userinfo;
+			dbo.collection("users").insertOne(userObj, function(err, res) {
+				if (err) throw err;
+				console.log("1 user inserted");
+				response.json(auth);
+			});
+		}
+		else{
+			response.status(400).json({ error: 'user exists' });
+		}
+	});	
+
+
+
 	if (options.username in users) {
 		if (options.password === users[options.username]) {
 			res.status(200).json({message: 'success'});
