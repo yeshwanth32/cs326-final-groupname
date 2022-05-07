@@ -8,14 +8,55 @@
     --secondary-alt: #646568;
     --accent: #9A9AE6;
     --accent-alt: #7a7ae6;
+    --size: 650px;
+    --primary-op: #0a0a0aa3;
 }
 
 body {
     margin: 0;
-    height: 100vh;
     background: var(--primary);
-    background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%);
+    /* background: linear-gradient(0deg, var(--primary) 0%, var(--accent) 100%); */
     font-family: 'Signika', sans-serif;
+    overflow: hidden;
+}
+
+.x-background {
+    animation: y 7s linear infinite alternate;
+    left: 0;
+    z-index: 0;
+    position: absolute;
+}
+
+.y-background{
+    animation: x 13s linear infinite alternate;
+    top: 100%;
+    z-index: 0;
+}
+
+@keyframes x {
+    100% {
+        transform: translateX(calc(100vw - var(--size)));
+      }
+}
+
+@keyframes y {
+    0%, 100% {
+        top: 50%;
+      }
+      
+      50% {
+        top: 0%;
+      }
+}
+
+@keyframes spin
+{
+    0%{
+        transform:rotate(0deg);
+      
+      }
+      100%{
+        transform:rotate(360deg);      }
 }
 
 * {
@@ -68,7 +109,6 @@ body {
 }
 
 .info-card {
-    background-color: var(--primary);
     width: 70vw;
     height: 90vh;
     margin-top: 10vh;
@@ -101,7 +141,7 @@ body {
 .content {
     width: 70vw;
     height: 70vh;
-    background-color: var(--primary-alt);
+    background-color: var(--primary-op);
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -158,6 +198,7 @@ body {
 }
 
 .banner {
+    background-color: var(--primary-alt);
     border-radius: 3rem 3rem 0 0;
     width: 70vw;
     height: 20vh;
