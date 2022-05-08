@@ -203,9 +203,6 @@ This website shows all the list of communities avalable for each game
 * Lets the user create an account
 
 
- 
-
-
 ## Authentication/Authorization
 
 we store the username and password in the mongodb database when the user registers using the register page. When the user tries to log in, we query the databse using the user id and the server verifies with the password to see if they match. If it does then we mark the user as logged in and store the logged in username in local storage. If the user logs in again we update these values with the new user log in. If the user logs out we simply update the loggedin vraiable in local storage to false.
