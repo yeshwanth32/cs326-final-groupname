@@ -42,6 +42,7 @@ window.onload = async function () {
             let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
             let valid = await crud.login(username, password);
+            console.log(valid);
             if (valid.message === 'success') {
                 ls.setItem('loggedIn', 'true');
                 ls.setItem('loggedInUser', username);

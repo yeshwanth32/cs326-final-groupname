@@ -100,7 +100,7 @@ export async function deleteCommunity(game, user) {
 export async function login(username, password) {
 	try {
 		const response = await fetch(`/login?username=${username}&password=${password}`, {
-			method: 'GET'
+			method: 'GET',
 		});
 		const data = await response.json();
 		return data;
