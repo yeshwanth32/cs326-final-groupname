@@ -117,13 +117,18 @@ export class CommunitiesDatabase {
 		this.client.close();
 	}
 
-	async addComm(game) {
-		const res = await this.collection.insertOne({game})
+    async getUserCommunities(user){
+        const res = await this.collection.find({ user: user }).toArray();
+		return res;
+    }
+
+	async addComm(game, user) {
+		const res = await this.collection.insertOne({game, user})
 		return res;
 	}
 
-    async deleteComm(game) {
-		const res = await this.collection.insertOne({game})
+    async deleteComm(game, user) {
+		const res = await this.collection.deleteOne({game, user})
 		return res;
 	}
 

@@ -54,38 +54,34 @@ async function addGame(res, game, price, condition) {
 	res.json(data);
 }
 
-async function addCommunity(res, game) {
+async function addCommunity(res, game, user) {
 	if (game === undefined) {
 		// 400 - Bad Request
 		res.status(400).json({ error: 'Game is required' });
-	}
-	else if( communities.includes(game)){
-		res.status(400).json({error: 'Already in this community'})
-	
-	} 
-	// else {
-	// 	communities.push(game);
-	// 	res.json(game);
-	// }
-	communities.push(game);
+	} else {
+		const existingComms = await communitiesDB.getUserCommunities(user);
+		for (let comm of existingComms) {
+			if (comm['game'] === game) {
+				res.status(400).json({ error: 'Already in this community' });
+				return;
+			}
+		}
 
-	let data = await communitiesDB.addComm(game);
-	res.json(data);
+		let data = await communitiesDB.addComm(game, user);
+		res.json(data);
+	}
+
+
 
 	
 }
 
-async function deleteCommunity(res, game){
+async function deleteCommunity(res, game, user){
 	if(game === undefined){
 		// 400 - Bad Request
 		response.status(400).json({ error: 'Game is required' });
 	} else {
-		let index = communities.indexOf(game);
-		if(index !== -1){
-			communities.splice(index, 1);
-		}
-
-		let data = await communitiesDB.deleteComm(game);
+		let data = await communitiesDB.deleteComm(game, user);
 		res.json(data);
 	}
 }
@@ -177,18 +173,25 @@ app.get('/game/:game', async(req, res) => {
 	res.json({price: faker.finance.amount(), description: faker.lorem.sentences(), trailer: faker.internet.domainName()});
 });
 
-app.get('/communities', async (req, res) => {
-	res.json(communities);
+app.get('/communities/user/:userId', async (req, res) => {
+	const userId = req.params.userId;
+	const userCommunities = await communitiesDB.getUserCommunities(userId);
+	let result = [];
+	for (let community of userCommunities) {
+		result.push(community['game']);
+	}
+	res.json(result);
+	return;
 });
 
 app.post('/communities/join', async (req, res) => {
 	const options = req.body;
-	addCommunity(res, options.game);
+	addCommunity(res, options.game, options.user);
 });
 
 app.delete('/communities/delete', async (req, res) => {
 	const options = req.body;
-	deleteCommunity(res, options.game);
+	deleteCommunity(res, options.game, options.user);
 });
 
 app.get('/login', async (req, res) => {

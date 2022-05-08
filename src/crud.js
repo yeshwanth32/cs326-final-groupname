@@ -61,9 +61,9 @@ export async function getGameDetails(game){
 	}
 }
 
-export async function readCommunities() {
+export async function readCommunities(user) {
 	try {
-		const response = await fetch(`/communities`, {
+		const response = await fetch(`/communities/user/${user}`, {
 			method: 'GET',
 		});
 		const data = await response.json();
@@ -73,22 +73,22 @@ export async function readCommunities() {
 	}
 }
 
-export async function createCommunity(game) {
+export async function createCommunity(game, user) {
 	const response = await fetch(`/communities/join`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ game: game}),
+		body: JSON.stringify({ game: game, user: user}),
 	});
 	const data = await response.json();
 	return data;
 }
 
-export async function deleteCommunity(game) {
+export async function deleteCommunity(game, user) {
 	const response = await fetch(`/communities/delete`, {
 	  method: 'DELETE',
-	  body: JSON.stringify({ game: game }),
+	  body: JSON.stringify({ game: game, user: user }),
 	  headers: {
 		'Content-Type': 'application/json',
 	  },
