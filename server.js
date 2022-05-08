@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(express.static('src'));
 app.use(express.static('src/html'));
 
@@ -31,7 +32,6 @@ let currentUser = '';
 let communities = [];
 let users = { 'test': 'test'};
 
-
 async function addGame(res, game, price, condition) {
 	if(game === undefined){
 		// 400 - Bad Request
@@ -48,8 +48,11 @@ async function addGame(res, game, price, condition) {
 		res.status(400).json({ error: 'Condition is required' });
 	}
 
-	let data = await rentalsDB.addRental(game, price, condition);
-	res.json(data);
+	if (!(game in rentals)) {
+		rentals[game] = [];
+	}
+	rentals[game].push({'price': price, 'condition': condition, 'seller': faker.name.findName()})
+	res.json({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
 }
 
 async function addCommunity(res, game) {
@@ -109,14 +112,13 @@ app.post('/addGame', async (req, res) => {
 	addGame(res, options.game, options.price, options.condition);
 })
 
+
 app.get('/games/:game', async (req, res) => {
 	const options = req.params;
-	const rentals = await rentalsDB.getGameRentals(options.game);
-	let result = [];
-	for (let rental of rentals) {
-		let price = rental['price'];
-		let condition = rental['condition'];
-		result.push({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
+	if (options.game in rentals) {
+		res.json(rentals[options.game]);
+	} else {
+		res.json([]);
 	}
 	res.json(result);
 	return;
@@ -205,18 +207,20 @@ app.get('/login', async (req, res) => {
 
 
 	if (options.username in users) {
+		console.log('enter 1')
+
 		if (options.password === users[options.username]) {
-			
+			console.log('enter 2')
+			res.status(200).json({message: 'success'});
 		}
 	}
 	else {
-		
+		res.status(400).json({ error: 'Invalid Credentials' });
 	}
 });
 
 app.post('/user/join', async (req, res) => {
 	const options = req.body;
-	console.log(options);
 	addUser(res, options.auth);
 });
 
