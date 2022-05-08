@@ -128,11 +128,14 @@ Our application uses the MongoDB Atlas database. The database stores user accoun
 
 ### User Account Information
 
-users document 
-{\
- 
-}
+users document
 
+{
+	name: username
+	info:{
+	 password: password
+   }
+}
 ### Communities
 
 communities document 

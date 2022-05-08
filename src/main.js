@@ -13,6 +13,12 @@ window.onload = async function () {
     if (document.URL.includes("loggedin.html")){
         let username = document.getElementById('user-name-h1');
         username.innerHTML = ls.getItem('loggedInUser');
+        const logout = document.getElementById('logout-button');
+        logout.addEventListener('click', e => {
+            ls.removeItem('loggedInUser');
+            ls.setItem('loggedIn', 'false');
+            window.location.href = "login.html";
+        });
         await addRentedGames();
     }
     if (document.URL.includes("add.html")) {
@@ -24,7 +30,7 @@ window.onload = async function () {
             let condition = document.getElementById('conditionSelect');
             let selectedCondition = condition.options[condition.selectedIndex].text;
             let selectedGame = gameSelect.options[gameSelect.selectedIndex].text;
-            const listing = await crud.createListing(selectedGame, price, selectedCondition);
+            const listing = await crud.createListing(selectedGame, price, selectedCondition, ls.getItem('loggedInUser'));
         });
     }
     if (document.URL.includes("groups.html")) {
@@ -100,17 +106,11 @@ async function register() {
         'email': email
     };
     let res = await crud.createUser(userAuth);
-    console.log(res);
     if (!res) {
         window.alert('Something went wrong');
     }
     else if (!res.ok) {
-        if (res.error === 'user exists') {
-            window.alert('User already exists');
-        }
-        else {
-            window.alert('Something went wrong');
-        }
+        window.alert('user already exists or something went wrong');
     }
     else {
         window.location.href = 'login.html';
