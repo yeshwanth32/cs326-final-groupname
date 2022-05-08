@@ -217,6 +217,7 @@ Added the route to retreive the game data from the server, and when the server r
 Added the route to add a rental listing to the user when they press the rent button on a game listing.
 On the user page, retreived all the games rented by them (including some defaults) and display them.
 Worked on debugging and coordinating with teammates.
+For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as coordinating with teammates
 
 ### Keerthana Mandava:
 Created communities page, contributed to milestone1.md, and assisted where needed.
