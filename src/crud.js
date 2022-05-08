@@ -13,11 +13,11 @@ export async function createListing(game, price, condition) {
 
 export async function addRental(game, user) {
 	const response = await fetch(`/rent`, {
-		method: 'PUT',
+		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({game: game}),
+		body: JSON.stringify({game: game, user: user}),
 	});
 	const data = await response.json();
 	return data;
@@ -39,7 +39,7 @@ export async function readListings(game) {
 
 export async function readUserRentals(user){
 	try {
-		const response = await fetch("/user/rentals", {
+		const response = await fetch(`/rentals/user/${user}`, {
 			method: 'GET',
 		});
 		const data = await response.json();
@@ -100,7 +100,7 @@ export async function deleteCommunity(game) {
 export async function login(username, password) {
 	try {
 		const response = await fetch(`/login?username=${username}&password=${password}`, {
-			method: 'GET',
+			method: 'GET'
 		});
 		const data = await response.json();
 		return data;

@@ -1,7 +1,5 @@
 import * as crud from './crud.js';
 
-
-
 let ls = window.localStorage;
 window.onload = async function () {
     await init();
@@ -13,6 +11,8 @@ window.onload = async function () {
         element.addEventListener('click', gameInfo);
     });
     if (document.URL.includes("loggedin.html")){
+        let username = document.getElementById('user-name-h1');
+        username.innerHTML = ls.getItem('loggedInUser');
         await addRentedGames();
     }
     if (document.URL.includes("add.html")) {
@@ -33,12 +33,12 @@ window.onload = async function () {
     if (document.URL.includes("login.html")) {
         let login_button = document.getElementById('login-button');
         login_button.addEventListener('click', async e => {
-            console.log('hello')
             let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
             let valid = await crud.login(username, password);
             if (valid.message === 'success') {
                 ls.setItem('loggedIn', 'true');
+                ls.setItem('loggedInUser', username);
                 window.location.href = "loggedin.html";
             }
         })
@@ -127,7 +127,8 @@ async function addRentedGames(){
         'g5': "img5",
         'g6': "img6",
     }
-    let rentedGames = await crud.readUserRentals("temp");
+    let currUser = ls.getItem('loggedInUser')
+    let rentedGames = await crud.readUserRentals(currUser);
     let element = document.getElementById("gamesRented");
     for (let i = 0; i < rentedGames.length; i++){
         let div = document.createElement("div");
@@ -255,7 +256,9 @@ async function addRentals(parent, game) {
         let rent = document.createElement("button");
         rent.innerHTML = "Rent";
         rent.addEventListener("click", async e =>{
-            await crud.addRental(gameCodes[game], "temp");
+            let currUser = ls.getItem('loggedInUser')
+            console.log(currUser);
+            await crud.addRental(gameCodes[game], currUser);
         })
 
         listing.appendChild(price);
