@@ -27,8 +27,6 @@ await rentalsDB.connect()
 const userRentalsDB = new UserRentalsDatabase(process.env.DATABASE_URL)
 await userRentalsDB.connect()
 
-let userRentals = ['g1', 'g3', 'g6'];
-let currentUser = '';
 let communities = [];
 let users = { 'test': 'test'};
 
@@ -48,11 +46,8 @@ async function addGame(res, game, price, condition) {
 		res.status(400).json({ error: 'Condition is required' });
 	}
 
-	if (!(game in rentals)) {
-		rentals[game] = [];
-	}
-	rentals[game].push({'price': price, 'condition': condition, 'seller': faker.name.findName()})
-	res.json({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
+	let data = await rentalsDB.addRental(game, price, condition);
+	res.json(data);
 }
 
 async function addCommunity(res, game) {
@@ -115,13 +110,14 @@ app.post('/addGame', async (req, res) => {
 
 app.get('/games/:game', async (req, res) => {
 	const options = req.params;
-	if (options.game in rentals) {
-		res.json(rentals[options.game]);
-	} else {
-		res.json([]);
+	const rentals = await rentalsDB.getGameRentals(options.game);
+	let result = [];
+	for (let rental of rentals) {
+		let price = rental['price'];
+		let condition = rental['condition'];
+		result.push({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
 	}
 	res.json(result);
-	return;
 })
 
 
@@ -196,27 +192,12 @@ app.get('/login', async (req, res) => {
 			let user = result[0];
 			if (user['info']['password'] === options.password){
 				res.status(200).json({message: 'success'});
-				currentUser = options.username;
 			}
 			else{
 				res.status(400).json({ error: 'password is incorrect' });
 			}
 		}
 	});	
-
-
-
-	if (options.username in users) {
-		console.log('enter 1')
-
-		if (options.password === users[options.username]) {
-			console.log('enter 2')
-			res.status(200).json({message: 'success'});
-		}
-	}
-	else {
-		res.status(400).json({ error: 'Invalid Credentials' });
-	}
 });
 
 app.post('/user/join', async (req, res) => {
