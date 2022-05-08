@@ -80,4 +80,4 @@ For the final milestone, worked on authentication integration with mongodb as we
 - Created entire database functionality for communities page.
 - Implemented functionality to make communities user specific.
 - Contributed to database planning.
-- Worked on final.md and milestone3.md.
+- Worked on milestone3.md.
