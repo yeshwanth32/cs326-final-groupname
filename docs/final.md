@@ -215,6 +215,10 @@ we store the username and password in the mongodb database when the user registe
 
 ## Conclusion
 
+Through working on this project, we all feel like we have learned a lot. Being able to create an app using new technologies, from coming up with ideas to deploying it was a challenging experience. As all of us worked on various steps of building the application, it helped us fill out gaps in our knowledge of full-stack development and help/learn from others who have more experience in a specific area (such as front end or back end). 
+
+Most of the difficulty lie in finding appropriate technologies and choosing one that is ideal for our application. An example of this was choosing a way to try and encrypt and decrypt passwords using external libraries such as CryptoJS. This was difficult given the time we had and if we knew what specific libraries to use beforehand, we may have been able to fully implement that. We also had similar issues with the Twitch api to get game information and we spent significant time trying to find a functional api with similar data. 
+
 ## Grading Rubric 
 
 ### Sign-Up (10 points):
@@ -255,12 +259,6 @@ we store the username and password in the mongodb database when the user registe
 ### Heroku Implementation (10 points):
 
 - Our website is visible here: https://umass-games.herokuapp.com/
-
-
-## Conclusion
-Through working on this project, we all feel like we have learned a lot. Being able to create an app using new technologies, from coming up with ideas to deploying it was a challenging experience. As all of us worked on various steps of building the application, it helped us fill out gaps in our knowledge of full-stack development and help/learn from others who have more experience in a specific area (such as front end or back end). 
-
-Most of the difficulty lie in finding appropriate technologies and choosing one that is ideal for our application. An example of this was choosing a way to try and encrypt and decrypt passwords using external libraries such as CryptoJS. This was difficult given the time we had and if we knew what specific libraries to use beforehand, we may have been able to fully implement that. We also had similar issues with the Twitch api to get game information and we spent significant time trying to find a functional api with similar data. 
 
 
 
