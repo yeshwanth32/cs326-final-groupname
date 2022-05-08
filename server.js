@@ -1,13 +1,12 @@
 import express from 'express';
 import logger from 'morgan';
 import faker from '@faker-js/faker'
-//import users from './users.js';
-//import auth from './auth.js';
 import dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
 
 import { GameRentalsDatabase } from './db.js';
 
+var CryptoJS = require("crypto-js");
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(logger('dev'));
@@ -83,8 +82,9 @@ async function addUser(response, auth){
 		if (result.length == 0){
 			let userObj = {};
 			let userinfo = {};
+			let password = CryptoJS.AES.encrypt(auth.password, process.env.SECRETKEY).toString();
 			userObj["name"] = auth.username;
-			userinfo["password"] = auth.password;
+			userinfo["password"] = password;
 			userObj["info"] = userinfo;
 			dbo.collection("users").insertOne(userObj, function(err, res) {
 				if (err) throw err;
@@ -152,7 +152,7 @@ app.delete('/communities/delete', async (req, res) => {
 	const options = req.body;
 	deleteCommunity(res, options.game);
 });
-
+//
 app.get('/login', async (req, res) => {
 	const options = req.query;
 	console.log(options)
@@ -164,7 +164,8 @@ app.get('/login', async (req, res) => {
 		}
 		else{
 			let user = result[0];
-			if (user['info']['password'] === options.password){
+			let password = CryptoJS.AES.decrypt(options.password, process.env.SECRETKEY).toString(CryptoJS.enc.Utf8);
+			if (user['info']['password'] === password){
 				res.status(200).json({message: 'success'});
 			}
 			else{
