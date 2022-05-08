@@ -203,9 +203,9 @@ body {
     width: 70vw;
     height: 20vh;
     display: flex;
-    align-content: center;
     justify-content: center;
     overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .banner-game {
@@ -459,4 +459,13 @@ a:visited {
 
 #login-button:hover {
     background-color: var(--accent-alt);
+}
+
+#logout-button {
+    margin-left: 80%;
+}
+
+.subheading {
+    text-align: center;
+    color: var(--secondary);
 }

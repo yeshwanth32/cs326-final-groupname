@@ -6,7 +6,7 @@ import faker from '@faker-js/faker'
 import dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
 
-import { GameRentalsDatabase, UserRentalsDatabase } from './db.js';
+import { GameRentalsDatabase, UserRentalsDatabase, CommunitiesDatabase } from './db.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,6 +24,10 @@ let dbo = client.db("ugames");
 const rentalsDB = new GameRentalsDatabase(process.env.DATABASE_URL);
 await rentalsDB.connect()
 
+const communitiesDB = new CommunitiesDatabase(process.env.DATABASE_URL);
+await communitiesDB.connect()
+
+let userRentals = ['g1', 'g3', 'g6'];
 const userRentalsDB = new UserRentalsDatabase(process.env.DATABASE_URL)
 await userRentalsDB.connect()
 
@@ -58,10 +62,17 @@ async function addCommunity(res, game) {
 	else if( communities.includes(game)){
 		res.status(400).json({error: 'Already in this community'})
 	
-	} else {
-		communities.push(game);
-		res.json(game);
-	}
+	} 
+	// else {
+	// 	communities.push(game);
+	// 	res.json(game);
+	// }
+	communities.push(game);
+
+	let data = await communitiesDB.addComm(game);
+	res.json(data);
+
+	
 }
 
 async function deleteCommunity(res, game){
@@ -73,8 +84,9 @@ async function deleteCommunity(res, game){
 		if(index !== -1){
 			communities.splice(index, 1);
 		}
-		res.json(game);
-		return;
+
+		let data = await communitiesDB.deleteComm(game);
+		res.json(data);
 	}
 }
 
