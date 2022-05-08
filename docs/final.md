@@ -116,6 +116,41 @@ UMass Game Exchange is a platform that brings gamers together. This is a website
 * Displays a game's description. 
 * Sends a GET request to the server. 
 
+## Database
+
+Our application uses the MongoDB Atlas database. The database stores user account information, communities a user joined, and a user's rental listings. Below are the structures of our collections. 
+
+1. User Account Information
+
+users document 
+{\
+ 
+}
+
+2. Communities
+
+communities document 
+{\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: <ObjectId1>,\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game: String\
+}
+
+- game: The name of the game community the user is a part of.
+
+3. Rentals
+
+rentals document 
+{\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: <ObjectId1>,\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game: String, \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price: String, \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;condition: String\
+}
+ 
+- game: The name of the game the user os renting out.  
+- price: The price of the game the user wants to sell it for.
+- condition: The condition of the game. 
+
 
 
 
