@@ -64,13 +64,20 @@ userRentals document
 For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as coordinating with teammates
 
 ### Rohan Adla:
-Worked on added ux and ui elements to front end
-Worked on user and password authentication and trying to set up cryptojs
-Worked on debugging and coordinating with teammates.
-Helped write documentation
+- Worked on added ux and ui elements to front end
+- Worked on user and password authentication and trying to set up cryptojs
+- Worked on debugging and coordinating with teammates.
+- Helped write documentation
 
 ### Aryaan Bomma:
 - Implemented login and logout functionality.
 - Implemented database functionality for rental listings and user rentals.
 - Contributed to database planning.
 - Provided assistance to teammates whenever it was needed
+
+### Keerthana Mandava:
+
+- Created entire database functionality for communities page.
+- Implemented functionality to make communities user specific.
+- Contributed to database planning.
+- Worked on final.md and milestone3.md.
