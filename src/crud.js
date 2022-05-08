@@ -1,10 +1,10 @@
-export async function createListing(game, price, condition) {
+export async function createListing(game, price, condition, seller) {
 	const response = await fetch(`/addGame`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({game: game, price: price, condition: condition}),
+		body: JSON.stringify({game: game, price: price, condition: condition, seller: seller}),
 	});
 	const data = await response.json();
 	return data;

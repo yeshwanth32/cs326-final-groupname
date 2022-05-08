@@ -30,7 +30,7 @@ await userRentalsDB.connect()
 let communities = [];
 let users = { 'test': 'test'};
 
-async function addGame(res, game, price, condition) {
+async function addGame(res, game, price, condition, seller) {
 	if(game === undefined){
 		// 400 - Bad Request
 		res.status(400).json({ error: 'Game is required' });
@@ -46,7 +46,7 @@ async function addGame(res, game, price, condition) {
 		res.status(400).json({ error: 'Condition is required' });
 	}
 
-	let data = await rentalsDB.addRental(game, price, condition);
+	let data = await rentalsDB.addRental(game, price, condition, seller);
 	res.json(data);
 }
 
@@ -104,7 +104,7 @@ async function addUser(response, auth){
 
 app.post('/addGame', async (req, res) => {
 	const options = req.body;
-	addGame(res, options.game, options.price, options.condition);
+	addGame(res, options.game, options.price, options.condition, options.seller);
 })
 
 
@@ -115,7 +115,8 @@ app.get('/games/:game', async (req, res) => {
 	for (let rental of rentals) {
 		let price = rental['price'];
 		let condition = rental['condition'];
-		result.push({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
+		let seller = rental['seller'];
+		result.push({ 'price': price, 'condition': condition, 'seller': seller})
 	}
 	res.json(result);
 })
@@ -147,17 +148,6 @@ app.post('/rent', async(req, res) => {
 	let result = await userRentalsDB.addRental(gameName, userId);
 	res.json(result);
 	return;
-
-	// let alreadyExists = false;
-	// for (let i =0 ; i < userRentals.length; i++){
-	// 	if (gameName=== userRentals[i]){
-	// 		alreadyExists = true
-	// 	}
-	// }
-	// if (!alreadyExists){
-	// 	userRentals.push(gameName);
-	// }
-	//console.log(userRentals);
 });
 
 app.get('/game/:game', async(req, res) => {

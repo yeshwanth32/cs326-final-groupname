@@ -29,8 +29,8 @@ export class GameRentalsDatabase {
 		this.client.close();
 	}
 
-	async addRental(game, price, condition) {
-		const res = await this.collection.insertOne({game, price, condition})
+	async addRental(game, price, condition, seller) {
+		const res = await this.collection.insertOne({game, price, condition, seller})
 		return res;
 	}
 

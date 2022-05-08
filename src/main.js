@@ -24,7 +24,7 @@ window.onload = async function () {
             let condition = document.getElementById('conditionSelect');
             let selectedCondition = condition.options[condition.selectedIndex].text;
             let selectedGame = gameSelect.options[gameSelect.selectedIndex].text;
-            const listing = await crud.createListing(selectedGame, price, selectedCondition);
+            const listing = await crud.createListing(selectedGame, price, selectedCondition, ls.getItem('loggedInUser'));
         });
     }
     if (document.URL.includes("groups.html")) {
