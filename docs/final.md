@@ -279,7 +279,7 @@ we store the username and password in the mongodb database when the user registe
 
 ### Cannot Join Same Community Twice (10 points): 
 
-- Join a community as we did in 1. Now try to join the same game’s community by clicking on the join community button. Trying to join a community again will result in an alert popping up prompting that you are already a part of this community
+- Join a game's community. Now try to join the same game’s community by clicking on the join community button. Trying to join a community again will result in an alert popping up prompting that you are already a part of this community
 
 ### Database Implementation (10 points):
 
