@@ -136,6 +136,9 @@ users document
 	 password: password
    }
 }
+
+In this structure we simply store the user name with the key name and query the database using the username. The password and other userinfo is stored as part of an objet in the info field.
+
 ### Communities
 
 communities document 
