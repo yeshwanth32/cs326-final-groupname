@@ -68,7 +68,6 @@ let gameNames = {};
 async function init() {
     icons = document.querySelectorAll(".icon");
     games = document.querySelectorAll(".game");
-    // Need to add some way of storing the names of the games that are on the discover page, this is just temporary.
     gameNames = {
         'g1': "God of War",
         'g2': "Fifa 21",
@@ -201,9 +200,7 @@ async function gameInfo() {
         } else {
             window.alert("You need to be logged in to join a community!");
         }
-        // addCommunities(document.getElementById('ul'));
     });
-    // gameGroup.classList.add("link");
 
     let exit = document.createElement("div");
     exit.innerHTML = "X";
@@ -238,7 +235,6 @@ async function gameInfo() {
 
 
 async function addRentals(parent, game) {
-    // let rentals = [{price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}, {price: "$3", condition: "fair", seller: "Pacific 3/5"}, {price: "$5", condition: "mint", seller: "Iris 4/5"}];
 
     const rentals = await crud.readListings(game);
     let gameCodes = {
@@ -254,7 +250,6 @@ async function addRentals(parent, game) {
         listing.classList.add("listing");
 
         let price = document.createElement("div");
-        // price.innerHTML = "Price: " + i["price"];
         price.innerHTML = `Price: $${i["price"]}`;
 
         let condition = document.createElement("div");

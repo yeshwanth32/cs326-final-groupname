@@ -204,6 +204,7 @@ body {
     height: 20vh;
     display: flex;
     justify-content: center;
+    align-content: center;
     overflow: hidden;
     flex-wrap: wrap;
 }
