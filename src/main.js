@@ -1,5 +1,5 @@
 import * as crud from './crud.js';
-
+import AES from "crypto-js/aes.js";
 
 
 let ls = window.localStorage;
@@ -35,6 +35,7 @@ window.onload = async function () {
         login_button.addEventListener('click', async e => {
             let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
+            // let passwordEncrypt = AES.decrypt(password, process.env.SECRETKEY).toString(CryptoJS.enc.Utf8);
             let valid = await crud.login(username, password);
             if (valid.message === 'success') {
                 ls.setItem('loggedIn', 'true');
@@ -75,7 +76,6 @@ function activateIcon() {
         loggedIn = true;
     }
     if (this.id === "user") {
-        //login page not functional yet due to lack of database, assuming user is logged in
         if (loggedIn) {
             location = "loggedin.html";        
         }
