@@ -182,7 +182,51 @@ userRentals document
 
 ## URL Routes/Mappings
 
+## /user/join
+
+* Allows a new user to register on the sign up page. 
+* Sends a POST request to the server. 
+
+## /login
+
+* Allows an already existing user to login. 
+* Sends a GET request to the server. 
+ 
+## /addGame
+
+* Adds a rental listing to the website. 
+* Sends a POST request to the server. 
+
+## /communities
+
+* Retrieve the community for a particular game.
+* Sends a GET request to the server. 
+
+## /communities/join
+
+* Allows the user to join a community. The particular community is displayed in the communities page.
+* Sends a POST request to the server. 
+
+## /communities/delete
+
+* Deletes a community the user is a part of.
+* Send a DELETE request to the server. 
+
+## /games/:game
+
+* Retrieves information about a rental game. Provides the game's name, price, and condition. 
+* Sends a GET request to the server. 
+
+## /game/:game
+
+* Displays a game's description. 
+* Sends a GET request to the server. 
+
+
 ## Authentication/Authorization
+
+we store the username and password in the mongodb database when the user registers using the register page. When the user tries to log in, we query the databse using the user id and the server verifies with the password to see if they match. If it does then we mark the user as logged in and store the logged in username in local storage. If the user logs in again we update these values with the new user log in. If the user logs out we simply update the loggedin vraiable in local storage to false.
+
 
 ## Division of Labor
 
