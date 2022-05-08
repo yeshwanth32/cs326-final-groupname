@@ -56,3 +56,9 @@ userRentals document
 
 - game: The name of the game the user rented.
 - user: The current user.
+
+
+## Division of Labor
+
+### Yeshwanth Bommareddy:
+For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as coordinating with teammates
