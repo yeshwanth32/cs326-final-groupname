@@ -10,7 +10,7 @@ window.onload = async function () {
         element.id = `g${index + 1}`;
         element.addEventListener('click', gameInfo);
     });
-    if (document.URL.includes("loggedin.html")){
+    if (document.URL.includes("loggedin.html")) {
         let username = document.getElementById('user-name-h1');
         username.innerHTML = ls.getItem('loggedInUser');
         const logout = document.getElementById('logout-button');
@@ -25,12 +25,17 @@ window.onload = async function () {
         addGameOptions(gameNames);
         let submit = document.getElementById('add-game-submit');
         submit.addEventListener('click', async e => {
-            let gameSelect = document.getElementById('gameSelect');
-            let price = document.getElementById('add-game-price').value;
-            let condition = document.getElementById('conditionSelect');
-            let selectedCondition = condition.options[condition.selectedIndex].text;
-            let selectedGame = gameSelect.options[gameSelect.selectedIndex].text;
-            const listing = await crud.createListing(selectedGame, price, selectedCondition, ls.getItem('loggedInUser'));
+            if (ls.getItem('loggedIn') === 'true') {
+                let gameSelect = document.getElementById('gameSelect');
+                let price = document.getElementById('add-game-price').value;
+                let condition = document.getElementById('conditionSelect');
+                let selectedCondition = condition.options[condition.selectedIndex].text;
+                let selectedGame = gameSelect.options[gameSelect.selectedIndex].text;
+                const listing = await crud.createListing(selectedGame, price, selectedCondition, ls.getItem('loggedInUser'));
+            } else {
+                window.alert('You need to log in to add rental listings!');
+            }
+
         });
     }
     if (document.URL.includes("groups.html")) {
@@ -84,7 +89,7 @@ function activateIcon() {
     if (this.id === "user") {
         //login page not functional yet due to lack of database, assuming user is logged in
         if (loggedIn) {
-            location = "loggedin.html";        
+            location = "loggedin.html";
         }
         else {
             location = "login.html";
@@ -119,7 +124,7 @@ async function register() {
 }
 
 
-async function addRentedGames(){
+async function addRentedGames() {
     let images = {
         'g1': "img2",
         'g2': "img3",
@@ -131,7 +136,7 @@ async function addRentedGames(){
     let currUser = ls.getItem('loggedInUser')
     let rentedGames = await crud.readUserRentals(currUser);
     let element = document.getElementById("gamesRented");
-    for (let i = 0; i < rentedGames.length; i++){
+    for (let i = 0; i < rentedGames.length; i++) {
         let div = document.createElement("div");
         div.className = "game-wrapper";
         div.innerHTML = `
@@ -183,14 +188,18 @@ async function gameInfo() {
     let gameName = gameNames[this.id]
 
     gameGroup.addEventListener('click', async e => {
+        if (ls.getItem('loggedIn') === 'true') {
             let res = await crud.createCommunity(gameName, ls.getItem('loggedInUser'));
             if (!res.ok) {
                 if (res.error === 'Already in this community') {
                     window.alert('You are already in this community!');
                 }
-            else{
-                window.location.href = 'groups.html';
+                else {
+                    window.location.href = 'groups.html';
+                }
             }
+        } else {
+            window.alert("You need to be logged in to join a community!");
         }
         // addCommunities(document.getElementById('ul'));
     });
@@ -234,11 +243,11 @@ async function addRentals(parent, game) {
     const rentals = await crud.readListings(game);
     let gameCodes = {
         "God of War": "g1",
-        "Fifa 21" : "g2",
+        "Fifa 21": "g2",
         "Pokemon - Legends of Arceus": "g3",
         "Elden Ring": "g4",
         "Spider-Man: Miles Morales": "g5",
-        "Super Mario Party" : "g6",
+        "Super Mario Party": "g6",
     }
     rentals.forEach(i => {
         let listing = document.createElement("div");
@@ -256,10 +265,14 @@ async function addRentals(parent, game) {
 
         let rent = document.createElement("button");
         rent.innerHTML = "Rent";
-        rent.addEventListener("click", async e =>{
-            let currUser = ls.getItem('loggedInUser')
-            console.log(currUser);
-            await crud.addRental(gameCodes[game], currUser);
+        rent.addEventListener("click", async e => {
+            if (ls.getItem('loggedIn') === 'true') {
+                let currUser = ls.getItem('loggedInUser')
+                console.log(currUser);
+                await crud.addRental(gameCodes[game], currUser);
+            } else {
+                window.alert('You need to be logged in to rent a game!');
+            }
         })
 
         listing.appendChild(price);
@@ -301,7 +314,7 @@ async function addCommunities(parent) {
                     </div>
                 </h4>
             </div>
-        `  
+        `
         let li = document.createElement('li');
         li.innerHTML = list;
         parent.appendChild(li);
