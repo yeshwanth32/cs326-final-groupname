@@ -1,6 +1,6 @@
 # Team Bandits
 
-## UMass Game Exchange
+## UGame
 
 ## Spring 2022
 
