@@ -100,17 +100,11 @@ async function register() {
         'email': email
     };
     let res = await crud.createUser(userAuth);
-    console.log(res);
     if (!res) {
         window.alert('Something went wrong');
     }
     else if (!res.ok) {
-        if (res.error === 'user exists') {
-            window.alert('User already exists');
-        }
-        else {
-            window.alert('Something went wrong');
-        }
+        window.alert('user already exists or something went wrong');
     }
     else {
         window.location.href = 'login.html';
