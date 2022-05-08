@@ -68,3 +68,9 @@ Worked on added ux and ui elements to front end
 Worked on user and password authentication and trying to set up cryptojs
 Worked on debugging and coordinating with teammates.
 Helped write documentation
+
+### Aryaan Bomma:
+- Implemented login and logout functionality.
+- Implemented database functionality for rental listings and user rentals.
+- Contributed to database planning.
+- Provided assistance to teammates whenever it was needed
