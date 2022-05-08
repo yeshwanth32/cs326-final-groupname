@@ -210,6 +210,39 @@ we store the username and password in the mongodb database when the user registe
 
 ## Division of Labor
 
+### Yeshwanth Bommareddy:
+Created user profile page and assisted where needed. 
+Worked on brainstorming the api endpoints.
+Added the route to retreive the game data from the server, and when the server responds with a faker js I display the data with the game.
+Added the route to add a rental listing to the user when they press the rent button on a game listing.
+On the user page, retreived all the games rented by them (including some defaults) and display them.
+Worked on debugging and coordinating with teammates.
+
+### Keerthana Mandava:
+Created communities page, contributed to milestone1.md, and assisted where needed.
+Contributed to API planning.
+Created the /communities/delete endpoint.
+Added error handling to /addGame, /communities/join, and /communities/delete endpoints.
+Wrote the deleteCommunity function to perform CRUD operations on the server and made sure any changes made on the server are reflected on the front end.
+Added functionality to make sure a user can not join the same community again.
+Made changes to the frontend of the Add Game page to make it fully functional.
+Created the milestone2.md document.
+
+### Aryaan Bomma:
+Created Add Games page, contributed to milestone1.md, and assisted where needed.
+Contributed to API planning.
+Worked on the following endpoints: /addGame, /games/:game, /communities, /communities/join, /login
+Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend.
+Provided assistance to teammates whenever it was needed.
+
+### Rohan Adla:
+Created wireframes, website framework, discover page, and assisted where needed.
+Added the front end for the login pages.
+Created the API for new registration.
+Worked on /user/join endpoint.
+Helped with user rentals and information page.
+Provided assistance to teammates whenever it was needed.
+
 ## Conclusion
 
 Through working on this project, we all feel like we have learned a lot. Being able to create an app using new technologies, from coming up with ideas to deploying it was a challenging experience. As all of us worked on various steps of building the application, it helped us fill out gaps in our knowledge of full-stack development and help/learn from others who have more experience in a specific area (such as front end or back end). 
