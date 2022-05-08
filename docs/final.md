@@ -243,6 +243,10 @@ Created the API for new registration.
 Worked on /user/join endpoint.
 Helped with user rentals and information page.
 Provided assistance to teammates whenever it was needed.
+Worked on added ux and ui elements to front end
+Helped write documentation
+Worked on user and password authentication and trying to set up cryptojs
+Worked on debugging and coordinating with teammates.
 
 ## Conclusion
 
