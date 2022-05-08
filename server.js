@@ -1,6 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import faker from '@faker-js/faker'
+import AES from "crypto-js/aes";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -137,7 +138,8 @@ app.delete('/communities/delete', async (req, res) => {
 
 app.get('/login', async (req, res) => {
 	const options = req.query;
-	console.log(options)
+	let ciphertext = AES.encrypt('my message', process.env).toString();
+	console.log();
 	if (options.username in users) {
 		console.log('enter 1')
 

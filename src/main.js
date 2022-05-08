@@ -1,7 +1,6 @@
 import * as crud from './crud.js';
 
 
-
 let ls = window.localStorage;
 window.onload = async function () {
     await init();
