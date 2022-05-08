@@ -220,21 +220,28 @@ We store the username and password in the mongodb database when the user registe
 - For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as - coordinating with teammates
 
 ### Keerthana Mandava:
-Created communities page, contributed to milestone1.md, and assisted where needed.
-Contributed to API planning.
-Created the /communities/delete endpoint.
-Added error handling to /addGame, /communities/join, and /communities/delete endpoints.
-Wrote the deleteCommunity function to perform CRUD operations on the server and made sure any changes made on the server are reflected on the front end.
-Added functionality to make sure a user can not join the same community again.
-Made changes to the frontend of the Add Game page to make it fully functional.
-Created the milestone2.md document.
+- Created communities page, contributed to milestone1.md.
+- Contributed to API planning.
+- Created the /communities/delete endpoint.
+- Added error handling to /addGame, /communities/join, and /communities/delete endpoints.
+- Wrote the deleteCommunity function to perform CRUD operations on the server and made sure any changes made on the server are reflected on the front end.
+- Added functionality to make sure a user can not join the same community again.
+- Made changes to the frontend of the Add Game page to make it fully functional.
+- Created the milestone2.md document.
+- Created entire database functionality for communities page.
+- Implemented functionality to make communities user specific.
+- Contributed to database planning.
+- Worked on final.md and milestone3.md.
 
 ### Aryaan Bomma:
-Created Add Games page, contributed to milestone1.md, and assisted where needed.
-Contributed to API planning.
-Worked on the following endpoints: /addGame, /games/:game, /communities, /communities/join, /login
-Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend.
-Provided assistance to teammates whenever it was needed.
+- Created Add Games page, contributed to milestone1.md.
+- Contributed to API planning.
+- Worked on the following endpoints: /addGame, /games/:game, /rentals/user/:userId, /rent, /communities, /communities/join, /login
+- Implemented functionality on the client side to perform CRUD operations on the endpoints I worked on, and render accordingly to the frontend.
+- Implemented login and logout functionality.
+- Implemented database functionality for rental listings and user rentals.
+- Contributed to database planning.
+- Provided assistance to teammates whenever it was needed.
 
 ### Rohan Adla:
 - Created wireframes, website framework, discover page, and assisted where needed.
