@@ -138,28 +138,93 @@ users document
 }
 ### Communities
 
-communities document 
+communities document
 {\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: <ObjectId1>,\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: ObjectId1,\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game: String\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user: String\
 }
 
 - game: The name of the game community the user is a part of.
+- user: The username of user
 
 ### Rentals
 
-rentals document 
+rentals document
 {\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: <ObjectId1>,\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: ObjectId1,\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game: String, \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price: String, \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;condition: String\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seller: String\
+
 }
  
-- game: The name of the game the user os renting out.  
+- game: The name of the game the user is renting out.  
 - price: The price of the game the user wants to sell it for.
 - condition: The condition of the game. 
+- seller: The user that is renting out game. 
 
+### User Rentals
+
+userRentals document 
+{\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: ObjectId1,\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game: String, \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user: String, \
+}
+
+- game: The name of the game the user rented.
+- user: The current user.
+
+## URL Routes/Mappings
+
+## Authentication/Authorization
+
+## Division of Labor
+
+## Conclusion
+
+## Grading Rubric 
+
+### Sign-Up (10 points):
+
+- New users should create a username, and password, and enter their email address on the Log in/Sign up page.
+
+### Log In (10 points):
+ - Already existing users should be able to log in using their username and password.
+
+### Log Out (10 points):
+
+- Upon clicking the log out button the application logs out the current user.
+
+### Join Community Button Works (10 points):
+
+- On the discover page, upon clicking on a game the join community button will appear. If you click on the join community button it should add the game’s community to the community page.
+
+### Delete Community (10 points): 
+
+- On the communities page, if you click on the delete button of a particular community it should delete that community. Even after refreshing the page that community will not appear unless you add it back.
+
+### Add Game (10 points): 
+
+- On the add game page, you should fill out all the fields and click on the submit button. To check if your game has been added or not,  go to the discover page and click on the game you selected to add. Your rental listing should appear.
+
+### Rent Button Works (10 points): 
+
+- On the discover page go to the rental you just added. If you click on the rent button the game should appear on the homepage in the list of games added.
+
+### Cannot Join Same Community Twice (10 points): 
+
+- Join a community as we did in 1. Now try to join the same game’s community by clicking on the join community button. Trying to join a community again will result in an alert popping up prompting that you are already a part of this community
+
+### Database Implementation (10 points):
+
+- We used a MongoDB database to handle all CRUD operations.
+
+### Heroku Implementation (10 points):
+
+- Our website is visible here: https://umass-games.herokuapp.com/
 
 
 
