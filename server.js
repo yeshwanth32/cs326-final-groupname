@@ -40,18 +40,18 @@ async function addGame(res, game, price, condition, seller) {
 		res.status(400).json({ error: 'Game is required' });
 	}
 
-	if(price === undefined){
+	else if(price === ''){
 		// 400 - Bad Request
 		res.status(400).json({ error: 'Price is required' });
 	}
 
-	if(condition === undefined){
+	else if(condition === undefined){
 		// 400 - Bad Request
 		res.status(400).json({ error: 'Condition is required' });
+	} else {
+		let data = await rentalsDB.addRental(game, price, condition, seller);
+		res.json(data);
 	}
-
-	let data = await rentalsDB.addRental(game, price, condition, seller);
-	res.json(data);
 }
 
 async function addCommunity(res, game, user) {
@@ -186,7 +186,6 @@ app.delete('/communities/delete', async (req, res) => {
 
 app.get('/login', async (req, res) => {
 	const options = req.query;
-	console.log(options)
 
 	dbo.collection("users").find({"name": options.username}).toArray(function(err, result) {
 		if (err) throw err;
