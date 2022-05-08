@@ -182,45 +182,28 @@ userRentals document
 
 ## URL Routes/Mappings
 
-## /user/join
+## https://umass-games.herokuapp.com/groups.html
 
-* Allows a new user to register on the sign up page. 
-* Sends a POST request to the server. 
+This website shows all the list of communities avalable for each game
 
-## /login
+## https://umass-games.herokuapp.com/index.html
 
-* Allows an already existing user to login. 
-* Sends a GET request to the server. 
+* This discover page for the website. Here you can see all the games that have listings
+
+## https://umass-games.herokuapp.com/loggedin.html
+
+* This is the landing page after a user has logged in. This includes the rental listings 
+
+## https://umass-games.herokuapp.com/login.html
+
+* Lets the user login with their username and password
+
+## https://umass-games.herokuapp.com/register.html
+
+* Lets the user create an account
+
+
  
-## /addGame
-
-* Adds a rental listing to the website. 
-* Sends a POST request to the server. 
-
-## /communities
-
-* Retrieve the community for a particular game.
-* Sends a GET request to the server. 
-
-## /communities/join
-
-* Allows the user to join a community. The particular community is displayed in the communities page.
-* Sends a POST request to the server. 
-
-## /communities/delete
-
-* Deletes a community the user is a part of.
-* Send a DELETE request to the server. 
-
-## /games/:game
-
-* Retrieves information about a rental game. Provides the game's name, price, and condition. 
-* Sends a GET request to the server. 
-
-## /game/:game
-
-* Displays a game's description. 
-* Sends a GET request to the server. 
 
 
 ## Authentication/Authorization
@@ -263,7 +246,7 @@ we store the username and password in the mongodb database when the user registe
 
 ### Cannot Join Same Community Twice (10 points): 
 
-- Join a community as we did in 1. Now try to join the same game’s community by clicking on the join community button. Trying to join a community again will result in an alert popping up prompting that you are already a part of this community
+- Join a game's community. Now try to join the same game’s community by clicking on the join community button. Trying to join a community again will result in an alert popping up prompting that you are already a part of this community
 
 ### Database Implementation (10 points):
 
@@ -274,8 +257,10 @@ we store the username and password in the mongodb database when the user registe
 - Our website is visible here: https://umass-games.herokuapp.com/
 
 
+## Conclusion
+Through working on this project, we all feel like we have learned a lot. Being able to create an app using new technologies, from coming up with ideas to deploying it was a challenging experience. As all of us worked on various steps of building the application, it helped us fill out gaps in our knowledge of full-stack development and help/learn from others who have more experience in a specific area (such as front end or back end). 
 
-
+Most of the difficulty lie in finding appropriate technologies and choosing one that is ideal for our application. An example of this was choosing a way to try and encrypt and decrypt passwords using external libraries such as CryptoJS. This was difficult given the time we had and if we knew what specific libraries to use beforehand, we may have been able to fully implement that. We also had similar issues with the Twitch api to get game information and we spent significant time trying to find a functional api with similar data. 
 
 
 
