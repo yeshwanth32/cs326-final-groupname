@@ -156,7 +156,7 @@ rentals document
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game: String, \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price: String, \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;condition: String\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seller: String\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seller: String
 
 }
  
