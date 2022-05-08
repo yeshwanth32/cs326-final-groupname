@@ -182,45 +182,61 @@ userRentals document
 
 ## URL Routes/Mappings
 
-## /user/join
+## https://umass-games.herokuapp.com/user/join
 
 * Allows a new user to register on the sign up page. 
 * Sends a POST request to the server. 
 
-## /login
+## https://umass-games.herokuapp.com/login
 
 * Allows an already existing user to login. 
 * Sends a GET request to the server. 
  
-## /addGame
+## https://umass-games.herokuapp.com/addGame
 
 * Adds a rental listing to the website. 
 * Sends a POST request to the server. 
 
-## /communities
+##  https://umass-games.herokuapp.com/communities
 
 * Retrieve the community for a particular game.
 * Sends a GET request to the server. 
 
-## /communities/join
+## https://umass-games.herokuapp.com/communities/join
 
 * Allows the user to join a community. The particular community is displayed in the communities page.
 * Sends a POST request to the server. 
 
-## /communities/delete
+## https://umass-games.herokuapp.com/communities/delete
 
 * Deletes a community the user is a part of.
 * Send a DELETE request to the server. 
 
-## /games/:game
+## https://umass-games.herokuapp.com/games/:game
 
 * Retrieves information about a rental game. Provides the game's name, price, and condition. 
 * Sends a GET request to the server. 
 
-## /game/:game
+## https://umass-games.herokuapp.com/games/:game
 
 * Displays a game's description. 
 * Sends a GET request to the server. 
+
+## https://umass-games.herokuapp.com/game/:game
+
+* Displays a game's description. 
+* Sends a GET request to the server. 
+
+## https://umass-games.herokuapp.com/rentals/user/:userId
+
+* retreives all the user's rented games given username
+* Sends a GET request to the server. 
+
+
+## https://umass-games.herokuapp.com/rentals/rent
+
+* adds a game to a user's rental listing thus allowing them to rent a game
+* Sends a POST request to the server. 
 
 
 ## Authentication/Authorization
