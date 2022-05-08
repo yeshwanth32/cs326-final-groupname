@@ -62,3 +62,9 @@ userRentals document
 
 ### Yeshwanth Bommareddy:
 For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as coordinating with teammates
+
+### Rohan Adla:
+Worked on added ux and ui elements to front end
+Worked on user and password authentication and trying to set up cryptojs
+Worked on debugging and coordinating with teammates.
+Helped write documentation
