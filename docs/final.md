@@ -126,14 +126,14 @@ UMass Game Exchange is a platform that brings gamers together. This is a website
 
 Our application uses the MongoDB Atlas database. The database stores user account information, communities a user joined, and a user's rental listings. Below are the structures of our collections. 
 
-1. User Account Information
+### User Account Information
 
 users document 
 {\
  
 }
 
-2. Communities
+### Communities
 
 communities document 
 {\
@@ -143,7 +143,7 @@ communities document
 
 - game: The name of the game community the user is a part of.
 
-3. Rentals
+### Rentals
 
 rentals document 
 {\
