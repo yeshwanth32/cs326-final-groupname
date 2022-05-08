@@ -182,7 +182,7 @@ async function gameInfo() {
     let gameName = gameNames[this.id]
 
     gameGroup.addEventListener('click', async e => {
-            let res = await crud.createCommunity(gameName);
+            let res = await crud.createCommunity(gameName, ls.getItem('loggedInUser'));
             if (!res.ok) {
                 if (res.error === 'Already in this community') {
                     window.alert('You are already in this community!');
@@ -278,7 +278,7 @@ function addGameOptions(gameNames) {
 
 async function addCommunities(parent) {
 
-    let communities = await crud.readCommunities();
+    let communities = await crud.readCommunities(ls.getItem('loggedInUser'));
 
     communities.forEach((community, i) => {
         let list = `
@@ -307,7 +307,7 @@ async function addCommunities(parent) {
         const deleteCommunity = document.getElementById(`delete-community-${i}`);
         deleteCommunity.addEventListener('click', async (e) => {
             parent.removeChild(li);
-            await crud.deleteCommunity(community);
+            await crud.deleteCommunity(community, ls.getItem('loggedInUser'));
         });
     })
 }
