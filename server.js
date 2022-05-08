@@ -6,7 +6,7 @@ import faker from '@faker-js/faker'
 import dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
 
-import { GameRentalsDatabase } from './db.js';
+import { GameRentalsDatabase, UserRentalsDatabase } from './db.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,14 +17,17 @@ app.use(express.static('src'));
 app.use(express.static('src/html'));
 
 dotenv.config()
-let client = await MongoClient.connect(process.env["DATABASE_URL"]);
-let dbo = client.db("mydb");
+let client = await MongoClient.connect(process.env.DATABASE_URL);
+let dbo = client.db("ugames");
 
 const rentalsDB = new GameRentalsDatabase(process.env.DATABASE_URL);
 await rentalsDB.connect()
 
-let userRentals = ['g1', 'g3', 'g6'];
+const userRentalsDB = new UserRentalsDatabase(process.env.DATABASE_URL)
+await userRentalsDB.connect()
 
+let userRentals = ['g1', 'g3', 'g6'];
+let currentUser = '';
 let communities = [];
 let users = { 'test': 'test'};
 
@@ -73,6 +76,7 @@ async function deleteCommunity(res, game){
 			communities.splice(index, 1);
 		}
 		res.json(game);
+		return;
 	}
 }
 
@@ -90,10 +94,12 @@ async function addUser(response, auth){
 				if (err) throw err;
 				console.log("1 user inserted");
 				response.json(auth);
+				return;
 			});
 		}
 		else{
 			response.status(400).json({ error: 'user exists' });
+			return;
 		}
 	});	
 }
@@ -113,24 +119,46 @@ app.get('/games/:game', async (req, res) => {
 		result.push({ 'price': price, 'condition': condition, 'seller': faker.name.findName() })
 	}
 	res.json(result);
+	return;
 })
 
 
-app.get("/user/rentals", async(req, res) =>{
-	res.json(userRentals);
+app.get("/rentals/user/:userId", async(req, res) =>{
+	const userId = req.params.userId;
+	console.log(userId)
+	const userRentals = await userRentalsDB.getUserRentals(userId);
+	let result = [];
+	for (let rental of userRentals) {
+		result.push(rental['game']);
+	}
+	res.json(result);
+	return;
 });
 
-app.put('/rent', async(req, res) => {
+app.post('/rent', async(req, res) => {
 	const gameName = req.body.game;
-	let alreadyExists = false;
-	for (let i =0 ; i < userRentals.length; i++){
-		if (gameName=== userRentals[i]){
-			alreadyExists = true
+	const userId = req.body.user;
+	const existingRentals = await userRentalsDB.getUserRentals(userId);
+	for (let rental of existingRentals) {
+		if (rental['game'] === gameName) {
+			res.status(400).json({ error: 'Already renting game' });
+			return;
 		}
 	}
-	if (!alreadyExists){
-		userRentals.push(gameName);
-	}
+
+	let result = await userRentalsDB.addRental(gameName, userId);
+	res.json(result);
+	return;
+
+	// let alreadyExists = false;
+	// for (let i =0 ; i < userRentals.length; i++){
+	// 	if (gameName=== userRentals[i]){
+	// 		alreadyExists = true
+	// 	}
+	// }
+	// if (!alreadyExists){
+	// 	userRentals.push(gameName);
+	// }
 	//console.log(userRentals);
 });
 
@@ -159,13 +187,14 @@ app.get('/login', async (req, res) => {
 
 	dbo.collection("users").find({"name": options.username}).toArray(function(err, result) {
 		if (err) throw err;
-		if (result.length == 0){
+		if (result.length === 0){
 			res.status(400).json({ error: 'username does not exist' });			
 		}
 		else{
 			let user = result[0];
 			if (user['info']['password'] === options.password){
 				res.status(200).json({message: 'success'});
+				currentUser = options.username;
 			}
 			else{
 				res.status(400).json({ error: 'password is incorrect' });
