@@ -462,12 +462,10 @@ a:visited {
 }
 
 #logout-button {
-    width: auto;
     margin-left: auto;
-    margin-right: 20px;
-    align-self: center;
 }
 
-.username {
-    margin-left: auto;
+.subheading {
+    text-align: center;
+    color: var(--secondary);
 }
