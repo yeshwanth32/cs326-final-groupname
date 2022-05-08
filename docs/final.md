@@ -19,9 +19,15 @@ UMass Game Exchange is a platform that brings gamers together. This is a website
 
 ### Login Page
 
-* This is where users login or sign up. 
+* This is where already existing users login. 
 
 ![image](https://user-images.githubusercontent.com/56751146/167276132-84c36794-faa0-494a-b0bf-782ec951a2aa.png)
+
+### Sign Up Page
+
+* If you are a new user click on the sign up button on the page above. This will display the page below and allow a new user to sign up. 
+
+![image](https://user-images.githubusercontent.com/56751146/167277786-419a27f0-6374-4353-b6e1-d538c875ffe8.png)
 
 ### User Homepage
 
@@ -120,14 +126,14 @@ UMass Game Exchange is a platform that brings gamers together. This is a website
 
 Our application uses the MongoDB Atlas database. The database stores user account information, communities a user joined, and a user's rental listings. Below are the structures of our collections. 
 
-1. User Account Information
+### User Account Information
 
 users document 
 {\
  
 }
 
-2. Communities
+### Communities
 
 communities document 
 {\
@@ -137,7 +143,7 @@ communities document
 
 - game: The name of the game community the user is a part of.
 
-3. Rentals
+### Rentals
 
 rentals document 
 {\
