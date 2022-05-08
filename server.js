@@ -3,10 +3,9 @@ import logger from 'morgan';
 import faker from '@faker-js/faker'
 import dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
-
+import AES from "crypto-js/aes.js";
 import { GameRentalsDatabase } from './db.js';
 
-var CryptoJS = require("crypto-js");
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(logger('dev'));
@@ -82,7 +81,8 @@ async function addUser(response, auth){
 		if (result.length == 0){
 			let userObj = {};
 			let userinfo = {};
-			let password = CryptoJS.AES.encrypt(auth.password, process.env.SECRETKEY).toString();
+			let password = AES.encrypt(auth.password, process.env.SECRETKEY).toString();
+			console.log(password);
 			userObj["name"] = auth.username;
 			userinfo["password"] = password;
 			userObj["info"] = userinfo;
@@ -164,7 +164,8 @@ app.get('/login', async (req, res) => {
 		}
 		else{
 			let user = result[0];
-			let password = CryptoJS.AES.decrypt(options.password, process.env.SECRETKEY).toString(CryptoJS.enc.Utf8);
+			let password = AES.decrypt(options.password, process.env.SECRETKEY).toString(CryptoJS.enc.Utf8);
+			console.log(password, options.password);
 			if (user['info']['password'] === password){
 				res.status(200).json({message: 'success'});
 			}
