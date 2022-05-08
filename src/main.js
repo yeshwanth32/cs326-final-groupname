@@ -13,6 +13,12 @@ window.onload = async function () {
     if (document.URL.includes("loggedin.html")){
         let username = document.getElementById('user-name-h1');
         username.innerHTML = ls.getItem('loggedInUser');
+        const logout = document.getElementById('logout-button');
+        logout.addEventListener('click', e => {
+            ls.removeItem('loggedInUser');
+            ls.setItem('loggedIn', 'false');
+            window.location.href = "login.html";
+        });
         await addRentedGames();
     }
     if (document.URL.includes("add.html")) {
