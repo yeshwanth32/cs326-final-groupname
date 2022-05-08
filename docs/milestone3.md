@@ -6,14 +6,15 @@ Our application uses the MongoDB Atlas database. The database stores user accoun
 
 users document
 
-{
-	name: username
-	info:{
-	 password: password
-   }
+{\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info:{\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: String\
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\
 }
 
-In this structure we simply store the user name with the key name and query the database using the username. The password and other userinfo is stored as part of an objet in the info field.
+- name: The username of user. 
+- password: The user's password.
 
 ### Communities
 
