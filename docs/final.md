@@ -211,13 +211,13 @@ we store the username and password in the mongodb database when the user registe
 ## Division of Labor
 
 ### Yeshwanth Bommareddy:
-Created user profile page and assisted where needed. 
-Worked on brainstorming the api endpoints.
-Added the route to retreive the game data from the server, and when the server responds with a faker js I display the data with the game.
-Added the route to add a rental listing to the user when they press the rent button on a game listing.
-On the user page, retreived all the games rented by them (including some defaults) and display them.
-Worked on debugging and coordinating with teammates.
-For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as coordinating with teammates
+- Created user profile page and assisted where needed. 
+- Worked on brainstorming the api endpoints.
+- Added the route to retreive the game data from the server, and when the server responds with a faker js I display the data with the game.
+- Added the route to add a rental listing to the user when they press the rent button on a game listing.
+- On the user page, retreived all the games rented by them (including some defaults) and display them.
+- Worked on debugging and coordinating with teammates.
+- For the final milestone, worked on authentication integration with mongodb as well as session storage. Also worked on filling out markdown files as well as - coordinating with teammates
 
 ### Keerthana Mandava:
 Created communities page, contributed to milestone1.md, and assisted where needed.
@@ -237,16 +237,16 @@ Implemented functionality on the client side to perform CRUD operations on the e
 Provided assistance to teammates whenever it was needed.
 
 ### Rohan Adla:
-Created wireframes, website framework, discover page, and assisted where needed.
-Added the front end for the login pages.
-Created the API for new registration.
-Worked on /user/join endpoint.
-Helped with user rentals and information page.
-Provided assistance to teammates whenever it was needed.
-Worked on added ux and ui elements to front end
-Helped write documentation
-Worked on user and password authentication and trying to set up cryptojs
-Worked on debugging and coordinating with teammates.
+- Created wireframes, website framework, discover page, and assisted where needed.
+- Added the front end for the login pages.
+- Created the API for new registration.
+- Worked on /user/join endpoint.
+- Helped with user rentals and information page.
+- Provided assistance to teammates whenever it was needed.
+- Worked on added ux and ui elements to front end
+- Helped write documentation
+- Worked on user and password authentication and trying to set up cryptojs
+- Worked on debugging and coordinating with teammates.
 
 ## Conclusion
 
